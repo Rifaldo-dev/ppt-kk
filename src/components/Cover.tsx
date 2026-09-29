@@ -13,11 +13,11 @@ export default function Cover({
   image,
   foot,
 }: {
-  kicker?: string;
+  kicker?: ReactNode;
   title: ReactNode;
   subtitle?: ReactNode;
   image?: string;
-  foot?: string;
+  foot?: ReactNode;
   nav?: string;
   notes?: string;
 }) {

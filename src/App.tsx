@@ -1,976 +1,917 @@
+import React from 'react';
 import Deck from './deck/Deck';
 import Slide from './deck/Slide';
-import Build from './deck/Build';
 import Reveal from './deck/Reveal';
-import Bento from './components/Bento';
-import Split from './components/Split';
-import CountUp from './components/CountUp';
-import TiltCard from './components/TiltCard';
-import Marquee from './components/Marquee';
-import VisualDashboard from './components/VisualDashboard';
-import StatGrid from './components/StatGrid';
-import Accordion from './components/Accordion';
-import Comparison from './components/Comparison';
-import Tabs from './components/Tabs';
-import Timeline from './components/Timeline';
-import CodeWindow from './components/CodeWindow';
-import BrowserFrame from './components/BrowserFrame';
-import SpotlightCard from './components/SpotlightCard';
-import { BarChart, LineChart, DonutChart } from './components/Charts';
-import Section from './components/Section';
-import Quote from './components/Quote';
-import Pricing from './components/Pricing';
-import Steps from './components/Steps';
-import Agenda from './components/Agenda';
-import Team from './components/Team';
-import Cover from './components/Cover';
-import BigNumber from './components/BigNumber';
-import Contrast from './components/Contrast';
-import Chat from './components/Chat';
-import Table from './components/Table';
-import Globe from './components/Globe';
-
-/* ══════════════════════════════════════════════════════════════════════
-   ⚠️  THROWAWAY DEMO showing every component. DELETE these slides and AUTHOR
-   THE USER'S DECK. Each child of <Deck> is one slide. Add speaker notes with
-   notes="…" on any slide (shown in presenter mode — press P).
-   ══════════════════════════════════════════════════════════════════════ */
-const panel = (extra = 0.22): React.CSSProperties => ({
-  position: 'absolute',
-  inset: 0,
-  background: `radial-gradient(120% 100% at 30% 20%, color-mix(in srgb, var(--primary) ${
-    extra * 100
-  }%, transparent), transparent 60%), var(--surface-2)`,
-});
-const card: React.CSSProperties = {
-  padding: 22,
-  borderRadius: 'var(--radius)',
-  background: 'var(--surface)',
-  border: '1px solid var(--hair)',
-};
+import Build from './deck/Build';
 
 export default function App() {
   return (
     <Deck>
-      {/* Cover */}
-      <Cover
-        nav="Cover"
-        notes="Welcome — introduce yourself, then set up the problem. Hold a beat on this slide."
-        kicker="Bolt Slides · Component demo"
-        title={<span className="accent-text">Bolt Slides</span>}
-        subtitle="A responsive React deck engine. Delete this and build the real one."
-        foot="June 2026 · Component demo"
-      />
-
-      {/* Statement + click-build */}
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 1 — OPENING (Art-Directed Editorial Cover)
+          ════════════════════════════════════════════════════════════════ */}
       <Slide
-        center
-        nav="Thesis"
-        notes="Pause before revealing the second line. The whole pitch hangs on this contrast."
+        nav="01. Pembukaan"
+        notes="Selamat datang seluruh peserta! Buka sesi dengan menyapa peserta, memperkenalkan komunitas KafeKoding, dan latar belakang pembukaan kelas diskusi 2026 ini."
       >
-        <h2
-          className="headline"
-          style={{ fontSize: 'clamp(34px,5.5vw,68px)', marginInline: 'auto' }}
-        >
-          Dashboards are everywhere.{' '}
-          <span className="accent-text">Insight isn't.</span>
-        </h2>
-        <Build at={1}>
-          <p className="subhead" style={{ marginTop: 20 }}>
-            Bolt Slides turns raw events into answers — automatically.
-          </p>
-        </Build>
-      </Slide>
-
-      {/* Agenda */}
-      <Agenda
-        nav="Agenda"
-        notes="Thirty seconds max — just orient the room, then move."
-        kicker="Agenda"
-        title="What we'll cover."
-        items={[
-          'The problem',
-          'How Bolt Slides works',
-          'Proof it compounds',
-          { title: 'Pricing & the ask', hint: '5 min' },
-        ]}
-      />
-
-      {/* Contrast — the problem */}
-      <Contrast
-        nav="The problem"
-        notes="Let the left panel sting for a second before you talk to the right one."
-        kicker="The shift"
-        title="Stop digging. Start asking."
-        left={{
-          label: 'Before',
-          title: 'Dashboard sprawl',
-          points: [
-            'Forty dashboards, zero answers',
-            'Analysts as human query engines',
-            'Insights arrive a week late',
-          ],
-        }}
-        right={{
-          label: 'With Bolt Slides',
-          title: 'Answers on tap',
-          points: [
-            'Ask in plain English',
-            'Sub-second, source-linked answers',
-            'Alerts before the dashboard knows',
-          ],
-        }}
-      />
-
-      {/* Split feature */}
-      <Split
-        nav="Realtime"
-        notes="Emphasize sub-second latency. Point at the live chart while you talk."
-        kicker="Realtime"
-        title={
-          <>
-            Everything, <span className="accent-text">as it happens.</span>
-          </>
-        }
-        body="Live metrics with sub-second latency — no pipelines to babysit."
-        media={
-          <>
-            <div style={panel(0.22)} />
-            <div
-              style={{
-                position: 'relative',
-                padding: 'clamp(14px,3vw,40px)',
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <TiltCard>
-                <VisualDashboard />
-              </TiltCard>
-            </div>
-          </>
-        }
-      />
-
-      {/* Bento */}
-      <Bento
-        nav="Platform"
-        notes="Don't read every tile — let them scan. Land on throughput and uptime."
-        kicker="One platform"
-        title="Everything in one place."
-        tiles={[
-          {
-            k: 'Throughput',
-            fig: <CountUp to={9.4} decimals={1} suffix="M" />,
-            body: 'events / min at peak.',
-            c: 5,
-            r: 2,
-            variant: 'glow',
-          },
-          {
-            k: 'Uptime',
-            fig: <CountUp to={99.99} decimals={2} suffix="%" />,
-            c: 4,
-          },
-          { k: 'Regions', fig: <CountUp to={28} />, c: 3, variant: 'accent' },
-          {
-            k: 'Connectors',
-            title: '120+ native',
-            body: 'Snowflake, Kafka, dbt…',
-            c: 4,
-          },
-          { k: 'Compliance', title: 'SOC 2 · HIPAA', c: 3 },
-        ]}
-      />
-
-      {/* Globe */}
-      <Globe
-        nav="Global"
-        notes="Spin it if you like — the markers are our actual regions. Land on the APAC number."
-        kicker="28 regions"
-        title={
-          <>
-            Everywhere your <span className="accent-text">data lives.</span>
-          </>
-        }
-        body="Ingest close to the source; answer from the nearest edge."
-        markers={[
-          {
-            location: [37.77, -122.41],
-            size: 0.08,
-            label: 'sfo1',
-            value: '221k evt/s',
-          },
-          { location: [40.71, -74.0], size: 0.08 },
-          {
-            location: [51.5, -0.12],
-            size: 0.07,
-            label: 'lhr1',
-            value: '188k evt/s',
-          },
-          { location: [52.52, 13.4], size: 0.05 },
-          {
-            location: [1.35, 103.82],
-            size: 0.07,
-            label: 'sin1',
-            value: '96k evt/s',
-          },
-          { location: [35.68, 139.69], size: 0.06 },
-          { location: [-33.87, 151.2], size: 0.05 },
-          { location: [-23.55, -46.63], size: 0.05 },
-        ]}
-        arcs={[
-          { from: [37.77, -122.41], to: [51.5, -0.12] },
-          { from: [51.5, -0.12], to: [1.35, 103.82] },
-          { from: [37.77, -122.41], to: [-23.55, -46.63] },
-        ]}
-        stats={[
-          { value: '48%', label: 'North America' },
-          { value: '31%', label: 'EMEA' },
-          { value: '21%', label: 'APAC + LATAM' },
-        ]}
-      />
-
-      {/* StatGrid — traction */}
-      <StatGrid
-        nav="Traction"
-        notes="These are the headline numbers investors remember. Say ARR is up 3× out loud."
-        kicker="Traction"
-        title="Numbers that compound."
-        stats={[
-          {
-            value: <CountUp to={4.2} decimals={1} prefix="$" suffix="M" />,
-            label: 'ARR',
-            caption: 'up 3× year over year',
-          },
-          {
-            value: <CountUp to={92} suffix="%" />,
-            label: 'Net retention',
-            caption: 'best in class',
-          },
-          {
-            value: <CountUp to={120} suffix="+" />,
-            label: 'Enterprise logos',
-            caption: 'across six industries',
-          },
-        ]}
-      />
-
-      {/* BigNumber */}
-      <BigNumber
-        nav="Big number"
-        notes="Let the number breathe. One sentence of context, then move."
-        kicker="Every day"
-        value={<CountUp to={2.4} decimals={1} suffix="B" />}
-        caption="events answered in under a second."
-        foot="Production traffic, trailing 30 days"
-      />
-
-      {/* Section divider */}
-      <Section
-        nav="Part two"
-        notes="Breathe. New chapter."
-        n={2}
-        kicker="Part two"
-        title={
-          <>
-            How it <span className="accent-text">works.</span>
-          </>
-        }
-      />
-
-      {/* Steps */}
-      <Steps
-        nav="How it works"
-        notes="Walk left to right. The point is that step three is where competitors stop."
-        kicker="How it works"
-        title="Three steps to live data."
-        items={[
-          {
-            title: 'Connect',
-            body: 'Point Bolt Slides at your warehouse or event stream. No schema to define.',
-          },
-          {
-            title: 'Model',
-            body: 'It learns your entities and builds the metric graph automatically.',
-          },
-          {
-            title: 'Act',
-            body: 'Ask questions in plain English; alerts fire before dashboards notice.',
-          },
-        ]}
-      />
-
-      {/* Chat */}
-      <Chat
-        nav="Ask anything"
-        notes="Click through the exchange one message at a time — pause after the answer lands."
-        kicker="Ask anything"
-        title="Plain English in. Answers out."
-        name="Bolt Slides"
-        messages={[
-          { from: 'user', text: 'Why did signups dip last week?' },
-          {
-            from: 'ai',
-            text: 'Signups fell 12% after Tuesday’s pricing-page change. The drop is entirely mobile — desktop is flat.',
-          },
-          { from: 'user', text: 'Roll it back for mobile only?' },
-          {
-            from: 'ai',
-            text: 'Done. I’ll alert you when the trend recovers — based on current traffic, roughly 6 hours.',
-          },
-        ]}
-      />
-
-      {/* Comparison */}
-      <Slide
-        nav="Comparison"
-        notes="Lead with realtime. If they push on price, point at the highlighted column."
-      >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            Why teams switch
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(22px,4vh,38px)',
-            }}
-          >
-            The honest comparison.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div style={{ maxWidth: 820, marginInline: 'auto' }}>
-            <Comparison
-              cols={['', 'Bolt Slides', 'Legacy tools']}
-              highlight={0}
-              rows={[
-                { label: 'Realtime by default', values: [true, false] },
-                { label: 'Self-host option', values: [true, false] },
-                {
-                  label: 'Time to first insight',
-                  values: ['5 min', '2 weeks'],
-                },
-                { label: 'Starting price', values: ['$29', '$99'] },
-              ]}
-            />
-          </div>
-        </Reveal>
-      </Slide>
-
-      {/* Tabs */}
-      <Slide
-        nav="Use cases"
-        notes="Click through the tabs as you speak to each team. Stop on the one that fits the room."
-      >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            One platform
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(20px,3vh,30px)',
-            }}
-          >
-            Built for every team.
-          </h2>
-        </Reveal>
-        <Reveal
-          style={{ textAlign: 'center', maxWidth: 780, marginInline: 'auto' }}
-        >
-          <Tabs
-            tabs={[
-              {
-                label: 'Engineering',
-                content: (
-                  <p className="lead">
-                    Trace any request end-to-end, alert on anomalies, ship with
-                    confidence.
-                  </p>
-                ),
-              },
-              {
-                label: 'Data',
-                content: (
-                  <div style={{ height: 180 }}>
-                    <BarChart
-                      data={[
-                        { label: 'Mon', value: 38 },
-                        { label: 'Tue', value: 55 },
-                        { label: 'Wed', value: 47 },
-                        { label: 'Thu', value: 72 },
-                        { label: 'Fri', value: 90 },
-                      ]}
-                      height={180}
-                    />
-                  </div>
-                ),
-              },
-              {
-                label: 'Ops',
-                content: (
-                  <p className="lead">
-                    One source of truth for uptime, cost, and capacity — no
-                    spreadsheets.
-                  </p>
-                ),
-              },
-            ]}
-          />
-        </Reveal>
-      </Slide>
-
-      {/* Split + code */}
-      <Split
-        nav="Developer-first"
-        notes="Three lines, no schema. If there's an engineer in the room, this is the slide for them."
-        kicker="Developer-first"
-        title={
-          <>
-            Drop-in <span className="accent-text">simple.</span>
-          </>
-        }
-        body="Add it to your app in three lines. No SDK to learn, no schema to define."
-        media={
-          <>
-            <div style={panel(0.16)} />
-            <div style={{ position: 'relative', padding: 36, width: '100%' }}>
-              <CodeWindow
-                title="app.ts"
-                highlight={[3]}
-                code={`import { track } from '@bolt-slides/sdk'
-
-track('signup', {
-  plan: 'pro',
-  source: 'landing',
-})`}
-              />
-            </div>
-          </>
-        }
-      />
-
-      {/* Browser frame */}
-      <Slide
-        center
-        nav="Product"
-        notes="Demo the real thing if you can. Otherwise walk the screen top to bottom."
-      >
-        <Reveal>
-          <div className="kicker" style={{ marginBottom: 14 }}>
-            See it live
-          </div>
-          <h2
-            className="headline"
-            style={{
-              fontSize: 'clamp(30px,4.4vw,52px)',
-              marginInline: 'auto',
-              marginBottom: 'clamp(18px,3vh,28px)',
-            }}
-          >
-            Your data, one screen.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div style={{ maxWidth: 800, marginInline: 'auto', width: '100%' }}>
-            <BrowserFrame url="app.boltslides.dev">
-              <div
-                className="appmock"
-                style={{ minHeight: 'clamp(280px, 42vh, 372px)' }}
-              >
-                <div
-                  className="hide-narrow"
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+          {/* Header Bar: Prominent Logo + Topic Metadata */}
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24 }}>
+              <div>
+                <img
+                  src="/kk.png"
+                  alt="Logo KafeKoding"
                   style={{
-                    borderRight: '1px solid var(--hair-2)',
-                    background: 'var(--surface)',
-                    padding: '18px 14px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 4,
+                    width: 'clamp(84px, 9vw, 108px)',
+                    height: 'clamp(84px, 9vw, 108px)',
+                    display: 'block',
+                    borderRadius: '50%',
                   }}
-                >
-                  <div
-                    className="kicker"
-                    style={{ marginBottom: 12, paddingLeft: 8 }}
-                  >
-                    Bolt Slides
-                  </div>
-                  {['Overview', 'Events', 'Funnels', 'Cohorts', 'Settings'].map(
-                    (n, i) => (
-                      <div
-                        key={n}
-                        style={{
-                          padding: '8px 12px',
-                          borderRadius: 9,
-                          fontSize: 14,
-                          fontWeight: i === 0 ? 600 : 400,
-                          color:
-                            i === 0 ? 'var(--accent-ink)' : 'var(--fg-muted)',
-                          background: i === 0 ? 'var(--accent)' : 'transparent',
-                        }}
-                      >
-                        {n}
-                      </div>
-                    )
-                  )}
-                </div>
-                <div style={{ padding: '20px 24px', textAlign: 'left' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'baseline',
-                      justifyContent: 'space-between',
-                      marginBottom: 16,
-                    }}
-                  >
-                    <h3 style={{ fontSize: 19, fontWeight: 600, margin: 0 }}>
-                      Overview
-                    </h3>
-                    <span className="foot">Last 30 days</span>
-                  </div>
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns:
-                        'repeat(auto-fit, minmax(min(110px, 100%), 1fr))',
-                      gap: 12,
-                      marginBottom: 16,
-                    }}
-                  >
-                    {[
-                      ['Revenue', '$1.24M', '▲ 18.2%'],
-                      ['Active users', '48,210', '▲ 9.4%'],
-                      ['Churn', '1.9%', '▼ 0.6%'],
-                    ].map(([l, v, d]) => (
-                      <div key={l} style={{ ...card, padding: 14 }}>
-                        <div className="foot" style={{ marginBottom: 5 }}>
-                          {l}
-                        </div>
-                        <div
-                          style={{
-                            fontSize: 23,
-                            fontWeight: 600,
-                            letterSpacing: '-0.02em',
-                            fontVariantNumeric: 'tabular-nums',
-                          }}
-                        >
-                          {v}
-                        </div>
-                        <div
-                          style={{
-                            fontSize: 12,
-                            fontWeight: 600,
-                            color: 'var(--primary)',
-                            marginTop: 4,
-                          }}
-                        >
-                          {d}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div style={{ ...card, padding: 16 }}>
-                    <LineChart
-                      points={[12, 16, 14, 22, 26, 34, 30, 44]}
-                      height={120}
-                    />
-                  </div>
-                </div>
-              </div>
-            </BrowserFrame>
-          </div>
-        </Reveal>
-      </Slide>
-
-      {/* Charts */}
-      <Slide
-        nav="Metrics"
-        notes="Net retention at 94% is the one to call out — it means the product sells itself."
-      >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            The numbers
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(22px,4vh,38px)',
-            }}
-          >
-            Growth you can see.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div className="cols">
-            <div style={card}>
-              <div className="kicker" style={{ marginBottom: 14 }}>
-                Weekly active
-              </div>
-              <div style={{ height: 150 }}>
-                <BarChart
-                  data={[
-                    { label: 'W1', value: 30 },
-                    { label: 'W2', value: 44 },
-                    { label: 'W3', value: 39 },
-                    { label: 'W4', value: 61 },
-                    { label: 'W5', value: 78 },
-                    { label: 'W6', value: 96 },
-                  ]}
-                  height={150}
                 />
               </div>
-            </div>
-            <div style={card}>
-              <div className="kicker" style={{ marginBottom: 14 }}>
-                Revenue
+              <div
+                style={{
+                  textAlign: 'right',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(0.78rem, 1.1vw, 0.9rem)',
+                  letterSpacing: '0.12em',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  paddingTop: 8,
+                }}
+              >
+                KOMUNITAS KAFEKODING · PEMBUKAAN 2026
               </div>
-              <LineChart
-                points={[12, 16, 14, 22, 26, 34, 30, 44]}
-                height={150}
-              />
             </div>
+          </Reveal>
+
+          {/* Single Subtle Editorial Rule */}
+          <div style={{ width: '100%', height: 1, background: 'var(--hair)', margin: 'clamp(20px, 3vh, 32px) 0' }} />
+
+          {/* Main Headline & Description */}
+          <div style={{ maxWidth: 840, textAlign: 'left', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Reveal delay={0.06}>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontSize: 'clamp(2.4rem, 5.2vw, 4.4rem)',
+                  fontWeight: 700,
+                  lineHeight: 1.06,
+                  letterSpacing: '-0.035em',
+                  color: 'var(--fg)',
+                  margin: '0 0 6px 0',
+                }}
+              >
+                Kelas Diskusi & Belajar
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.12}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontSize: 'clamp(2rem, 4.2vw, 3.6rem)',
+                  fontWeight: 600,
+                  lineHeight: 1.1,
+                  letterSpacing: '-0.03em',
+                  color: 'var(--primary)',
+                  marginBottom: 'clamp(18px, 2.5vh, 28px)',
+                }}
+              >
+                Bersama
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 'clamp(1.05rem, 1.6vw, 1.3rem)',
+                  lineHeight: 1.6,
+                  color: 'var(--fg-muted)',
+                  maxWidth: '38ch',
+                  margin: 0,
+                }}
+              >
+                Membangun pemahaman teknologi melalui diskusi aktif, mentoring terarah, dan kolaborasi nyata.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Bottom Information Row */}
+          <Reveal delay={0.24}>
             <div
               style={{
-                ...card,
+                borderTop: '1px solid var(--hair)',
+                paddingTop: 'clamp(16px, 2.5vh, 24px)',
+                marginTop: 'clamp(20px, 3vh, 32px)',
                 display: 'flex',
-                flexDirection: 'column',
+                justifyContent: 'space-between',
                 alignItems: 'center',
-                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: 16,
+                fontFamily: 'var(--font-mono)',
+                fontSize: 'clamp(0.8rem, 1.1vw, 0.92rem)',
+                color: 'var(--fg-faint)',
               }}
             >
-              <DonutChart value={94} label="Net retention" size={150} />
+              <span style={{ fontWeight: 500, color: 'var(--fg-muted)' }}>www.kafekoding.com</span>
+              <span>@kafekoding</span>
+              <span style={{ fontWeight: 500 }}>Periode 2026</span>
             </div>
-          </div>
-        </Reveal>
-      </Slide>
-
-      {/* Data table */}
-      <Slide
-        nav="Unit economics"
-        notes="Walk the growth column top to bottom — APAC is the story."
-      >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            Unit economics
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(22px,4vh,38px)',
-            }}
-          >
-            Growth, by region.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <Table
-            columns={['Region', 'ARR', 'Growth', 'NRR', 'Payback']}
-            rows={[
-              ['North America', '$2.4M', '+38%', '124%', '11 mo'],
-              ['Europe', '$1.1M', '+52%', '118%', '13 mo'],
-              ['APAC', '$0.7M', '+61%', '109%', '14 mo'],
-              ['LATAM', '$0.2M', '+44%', '104%', '16 mo'],
-            ]}
-            highlightCol={2}
-            caption="Company data, FY25 · NRR = net revenue retention"
-          />
-        </Reveal>
-      </Slide>
-
-      {/* Timeline */}
-      <Slide
-        nav="Roadmap"
-        notes="Anchor on 'Now'. The AI insights line is what gets people excited — dwell there."
-      >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            Where we're going
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(20px,3vh,32px)',
-            }}
-          >
-            The roadmap.
-          </h2>
-        </Reveal>
-        <div style={{ maxWidth: 560, marginInline: 'auto' }}>
-          <Timeline
-            items={[
-              {
-                time: 'Shipped',
-                title: 'Realtime core',
-                body: 'Sub-second metrics across 28 regions.',
-              },
-              {
-                time: 'Now',
-                title: 'AI insights',
-                body: 'Plain-English answers from your data.',
-              },
-              {
-                time: 'Next',
-                title: 'Enterprise',
-                body: 'SSO, audit logs, and on-prem.',
-              },
-            ]}
-          />
+          </Reveal>
         </div>
       </Slide>
 
-      {/* Pricing */}
-      <Pricing
-        nav="Pricing"
-        notes="Anchor on Pro. Enterprise exists so Pro looks reasonable — don't oversell it."
-        kicker="Pricing"
-        title="Simple, honest plans."
-        tiers={[
-          {
-            name: 'Starter',
-            price: '$29',
-            period: '/mo',
-            blurb: 'For small teams getting live.',
-            features: [
-              '1M events / month',
-              'Realtime dashboards',
-              'Community support',
-            ],
-          },
-          {
-            name: 'Pro',
-            price: '$79',
-            period: '/mo',
-            blurb: 'Everything growing teams need.',
-            features: [
-              '10M events / month',
-              'AI insights + alerts',
-              'Self-host option',
-              'Priority support',
-            ],
-            highlight: true,
-          },
-          {
-            name: 'Enterprise',
-            price: 'Custom',
-            blurb: 'Scale, compliance, and control.',
-            features: [
-              'Unlimited events',
-              'SSO + audit logs',
-              'On-prem deploy',
-              'Dedicated CSM',
-            ],
-          },
-        ]}
-      />
-
-      {/* Spotlight principles */}
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 2 — AGENDA (Editorial Numbered Framework)
+          ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="Principles"
-        notes="Hover the cards for the glow if presenting on a screen. Keep this one short."
+        nav="02. Agenda"
+        notes="Sampaikan 4 topik utama pembahasan pada pertemuan hari ini. Navigasi nomor memandu alur presentasi secara runtut."
       >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            What we believe
-          </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(22px,4vh,38px)',
-            }}
-          >
-            Three principles.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div className="cols">
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          {/* Header Row */}
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 48px)' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                  PANDUAN SESI
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                  Agenda Pembahasan Hari Ini
+                </h2>
+              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 600 }}>
+                4 Topik Bahasan
+              </span>
+            </div>
+          </Reveal>
+
+          {/* 4-Item Editorial List */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(440px, 100%), 1fr))', gap: 'clamp(20px, 3vh, 36px) 48px' }}>
             {[
               {
-                k: '01',
-                t: 'Fast by default',
-                d: 'Speed is a feature. Everything is realtime.',
+                num: '01',
+                title: 'KafeKoding Ngapain Aja?',
+                desc: 'Visi pembentukan, kultur diskusi, serta 4 pilar aktivitas utama komunitas.',
               },
               {
-                k: '02',
-                t: 'Yours to own',
-                d: 'Your data, your infra, no lock-in.',
+                num: '02',
+                title: 'Mekanisme & Format Kelas',
+                desc: 'Penjelasan struktur 15 pertemuan, pembagian materi domain, dan penugasan mingguan.',
               },
               {
-                k: '03',
-                t: 'Honest pricing',
-                d: 'No per-seat tax. Scale without surprises.',
+                num: '03',
+                title: 'Syarat & Benefit Kelulusan',
+                desc: 'Ketentuan presensi minimal, ujian kelayakan, sertifikat resmi, dan akses jaringan alumni.',
               },
-            ].map((p) => (
-              <SpotlightCard key={p.k}>
-                <div
-                  className="kicker accent-text"
-                  style={{ marginBottom: 12 }}
-                >
-                  {p.k}
+              {
+                num: '04',
+                title: 'Sesi Tanya Jawab (Q&A)',
+                desc: 'Ruang interaktif untuk peserta bertanya langsung maupun melalui platform diskusi daring.',
+              },
+            ].map((item, idx) => (
+              <Reveal key={item.num} delay={0.06 * (idx + 1)}>
+                <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '1.25rem',
+                      fontWeight: 700,
+                      color: 'var(--primary)',
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {item.num}
+                  </span>
+                  <div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', letterSpacing: '-0.015em' }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ margin: 0, fontSize: '0.96rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                <h3
-                  style={{
-                    fontSize: 'clamp(20px,2.2vw,26px)',
-                    fontWeight: 600,
-                    margin: '0 0 8px',
-                  }}
-                >
-                  {p.t}
-                </h3>
-                <p
-                  style={{
-                    color: 'var(--fg-muted)',
-                    fontSize: 15,
-                    margin: 0,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {p.d}
-                </p>
-              </SpotlightCard>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
       </Slide>
 
-      {/* Accordion — FAQ */}
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 3 — INTRODUCTION (Split Editorial Profile)
+          ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="FAQ"
-        notes="Only open the questions they actually ask. Skip the rest to keep momentum."
+        nav="03. Profil"
+        notes="Jelaskan secara singkat apa itu KafeKoding: sejarah inisiatif sejak 2013 hingga menjadi wadah belajar terbuka saat ini."
       >
-        <Reveal>
-          <div
-            className="kicker"
-            style={{ marginBottom: 12, textAlign: 'center' }}
-          >
-            Common questions
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 44px)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                TENTANG KAFEKODING
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                Apa yang Kami Kerjakan?
+              </h2>
+            </div>
+          </Reveal>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: 'clamp(24px, 4vw, 56px)' }}>
+            {/* Left Column: Core Narrative */}
+            <Reveal delay={0.08}>
+              <div>
+                <p style={{ fontSize: 'clamp(1.1rem, 1.6vw, 1.25rem)', lineHeight: 1.6, color: 'var(--fg)', margin: '0 0 16px 0', fontWeight: 500 }}>
+                  KafeKoding adalah komunitas belajar dan berbagi teknologi independen yang berakar dari semangat kolaborasi nyata sejak tahun 2013.
+                </p>
+                <p style={{ fontSize: '0.98rem', lineHeight: 1.65, color: 'var(--fg-muted)', margin: 0 }}>
+                  Kami menyediakan ruang aman dan terarah bagi mahasiswa, praktisi pemula, maupun pengembang mandiri untuk mengasah keahlian pemrograman melalui mentoring sejawat tanpa sekat formalitas.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Right Column: 3 Core Principles */}
+            <Reveal delay={0.16}>
+              <div style={{ borderLeft: '2px solid var(--primary)', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <div>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 600, margin: '0 0 4px 0' }}>Ruang Belajar Terbuka</h4>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--fg-muted)', margin: 0 }}>
+                    Inklusif bagi siapa pun yang memiliki kemauan kuat untuk belajar tanpa memandang latar belakang akademis.
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 600, margin: '0 0 4px 0' }}>Fokus Praktek & Logika</h4>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--fg-muted)', margin: 0 }}>
+                    Pendekatan belajar ditekankan pada pemahaman algoritma, penulisan kode mandiri, dan pembedahan studi kasus nyata.
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.08rem', fontWeight: 600, margin: '0 0 4px 0' }}>Ekosistem Bertumbuh</h4>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--fg-muted)', margin: 0 }}>
+                    Alumni kelas berkesempatan kembali menjadi mentor, pengurus, atau kontributor dalam proyek riset teknologi.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
-          <h2
-            className="headline"
-            style={{
-              textAlign: 'center',
-              marginInline: 'auto',
-              marginBottom: 'clamp(20px,3vh,30px)',
-            }}
-          >
-            Frequently asked.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div style={{ maxWidth: 720, marginInline: 'auto' }}>
-            <Accordion
-              items={[
-                {
-                  title: 'How long does setup take?',
-                  body: 'Five minutes — point Bolt Slides at your warehouse and you are live.',
-                },
-                {
-                  title: 'Can we self-host?',
-                  body: 'Yes. A Docker image and Terraform module ship with every plan.',
-                },
-                {
-                  title: 'How is it priced?',
-                  body: 'Flat monthly, no per-seat tax — you scale without surprises.',
-                },
-              ]}
-            />
-          </div>
-        </Reveal>
+        </div>
       </Slide>
 
-      {/* Team */}
-      <Team
-        nav="Team"
-        notes="One line per person. The point is the operator pedigree, not the bios."
-        kicker="The team"
-        title="Built by operators."
-        people={[
-          { name: 'Dana Kim', role: 'CEO · ex-Stripe' },
-          { name: 'Ade Obi', role: 'CTO · ex-Datadog' },
-          { name: 'Mara Silva', role: 'Design · ex-Linear' },
-          { name: 'Jon Park', role: 'GTM · ex-Snowflake' },
-        ]}
-      />
-
-      {/* Logos */}
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 4 — 4 PILAR AKTIVITAS (Connected Framework)
+          ════════════════════════════════════════════════════════════════ */}
       <Slide
-        center
-        nav="Customers"
-        notes="Name-drop the two logos most relevant to this audience."
+        nav="04. 4 Pilar"
+        notes="Jelaskan 4 pilar aktivitas. Berikan penekanan bahwa peserta saat ini sedang berada pada pilar 'Belajar Bersama'."
       >
-        <Reveal>
-          <div className="kicker" style={{ marginBottom: 28 }}>
-            Trusted by teams everywhere
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 40px)' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                  EKOSISTEM KOMUNITAS
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                  4 Pilar Aktivitas KafeKoding
+                </h2>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 4-Column Grid with Distinct Hairline Borders */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 24 }}>
+            {[
+              {
+                num: '01',
+                tag: 'Kamu di Sini',
+                title: 'Belajar Bersama',
+                desc: 'Saling berbagi pemahaman penggunaan teknologi ke sesama anggota dan peserta kelas secara terarah dan aplikatif.',
+                highlight: true,
+              },
+              {
+                num: '02',
+                tag: 'Forum Terbuka',
+                title: 'Diskusi Teknologi',
+                desc: 'Ruang diskusi multi-bidang dari problem tugas perkuliahan, tantangan industri, hingga tren rekayasa perangkat lunak.',
+                highlight: false,
+              },
+              {
+                num: '03',
+                tag: 'Kompetisi',
+                title: 'Terlibat Event',
+                desc: 'Menguji batas kemampuan dengan mengikuti hackathon, workshop, dan lomba teknologi yang diadakan pihak luar.',
+                highlight: false,
+              },
+              {
+                num: '04',
+                tag: 'Kolaborasi',
+                title: 'Eksplorasi Projek',
+                desc: 'Melatih kerja tim dalam pembuatan software nyata melalui pembentukan squad kecil yang terkoordinasi.',
+                highlight: false,
+              },
+            ].map((pilar, idx) => (
+              <Reveal key={pilar.num} delay={0.06 * (idx + 1)}>
+                <div
+                  style={{
+                    borderTop: pilar.highlight ? '3px solid var(--primary)' : '1px solid var(--hair)',
+                    paddingTop: 16,
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.15rem', fontWeight: 700, color: pilar.highlight ? 'var(--primary)' : 'var(--fg-faint)' }}>
+                        {pilar.num}
+                      </span>
+                      {pilar.highlight && (
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--primary)', background: '#eff6ff', padding: '2px 8px', borderRadius: 4 }}>
+                          {pilar.tag}
+                        </span>
+                      )}
+                    </div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 8px 0', letterSpacing: '-0.015em' }}>
+                      {pilar.title}
+                    </h3>
+                    <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.55, color: 'var(--fg-muted)' }}>
+                      {pilar.desc}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-        <Marquee
-          items={[
-            'Northwind',
-            'Globex',
-            'Initech',
-            'Umbra',
-            'Hooli',
-            'Vehement',
-            'Soylent',
-          ]}
-        />
+        </div>
       </Slide>
 
-      {/* Quote */}
-      <Quote
-        nav="Quote"
-        notes="Read it slowly, then stay silent for a second. Let it land."
-        text="We replaced four tools with Bolt Slides and never looked back."
-        name="Dana Kim"
-        role="VP Engineering, Acme"
-      />
-
-      {/* CTA */}
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 5 — COMMUNITY STATEMENT (Typographic Statement)
+          ════════════════════════════════════════════════════════════════ */}
       <Slide
-        center
-        nav="Close"
-        notes="Make the ask explicitly. Leave the contact details on screen while you take questions."
+        nav="05. Kultur"
+        notes="Sampaikan kultur dasar komunitas: tidak ada pertanyaan yang dianggap remeh. Diskusi adalah jalan utama memahami teknologi."
       >
-        <Reveal>
-          <h2 className="display" style={{ fontSize: 'clamp(40px,7vw,96px)' }}>
-            <span className="accent-text">Let's talk.</span>
-          </h2>
-          <p className="subhead" style={{ marginTop: 16 }}>
-            hello@bolt.new
-          </p>
-        </Reveal>
+        <div style={{ maxWidth: 880, textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
+              KULTUR & NILAI KOMUNITAS
+            </span>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <h2
+              style={{
+                fontSize: 'clamp(2.4rem, 4.8vw, 3.8rem)',
+                fontWeight: 700,
+                lineHeight: 1.12,
+                letterSpacing: '-0.03em',
+                color: 'var(--fg)',
+                margin: '16px 0 24px 0',
+              }}
+            >
+              "Ya.. Kami Berdiskusi!"
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.16}>
+            <p
+              style={{
+                fontSize: 'clamp(1.1rem, 1.7vw, 1.35rem)',
+                lineHeight: 1.6,
+                color: 'var(--fg-muted)',
+                margin: '0 0 32px 0',
+                maxWidth: '42ch',
+              }}
+            >
+              Kami percaya bahwa pemahaman terbaik tidak lahir dari instruksi searah, melainkan dari keberanian bertanya, membedah kode bersama, dan saling mendukung saat menghadapi error.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.24}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, borderTop: '1px solid var(--hair)', paddingTop: 18 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--fg)' }}>
+                Komunitas KafeKoding
+              </span>
+              <span style={{ color: 'var(--fg-faint)' }}>·</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--fg-faint)' }}>
+                Kultur Belajar Sejak 2013
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 6 — MECHANISM (Horizontal Process Progression)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="06. Mekanisme"
+        notes="Jelaskan alur tahapan pelaksanaan kelas 2026 dari awal orientasi sampai evaluasi kelayakan akhir."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 44px)' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                  ALUR PEMBELAJARAN
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                  Mekanisme Kelas 2026
+                </h2>
+              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--fg-faint)' }}>
+                4 Tahapan Utama
+              </span>
+            </div>
+          </Reveal>
+
+          {/* Process Progression */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: 24 }}>
+            {[
+              {
+                step: '01',
+                title: 'Orientasi Kelas',
+                desc: 'Sesi pembukaan, pengenalan silabus materi, dan pembagian grup pendampingan.',
+              },
+              {
+                step: '02',
+                title: '15 Pertemuan Materi',
+                desc: 'Pembelajaran terstruktur di kelas bersama 1 - 2 mentor pendamping berpengalaman.',
+              },
+              {
+                step: '03',
+                title: 'Penugasan Berkala',
+                desc: 'Latihan mandiri mingguan sebagai bahan evaluasi pemahaman topik.',
+              },
+              {
+                step: '04',
+                title: 'Ujian Kelayakan',
+                desc: 'Uji kompetensi akhir untuk menentukan kelayakan kelulusan peserta.',
+              },
+            ].map((fase, idx) => (
+              <Reveal key={fase.step} delay={0.06 * (idx + 1)}>
+                <div style={{ borderTop: '2px solid var(--fg)', paddingTop: 16 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)' }}>
+                    FASE {fase.step}
+                  </span>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 600, margin: '8px 0 6px 0', letterSpacing: '-0.015em' }}>
+                    {fase.title}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
+                    {fase.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 7 — CURRICULUM (Structured Domain Learning Map)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="07. Domain Materi"
+        notes="Perkenalkan 4 domain materi teknologi yang disediakan. Jelaskan keterkaitan kompetensi yang dibangun pada masing-masing bidang."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 36px)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                KURIKULUM PEMBELAJARAN
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                Materi yang Dipelajari
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* Structured 4-Domain Learning Matrix */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 20 }}>
+            {[
+              {
+                domain: 'Web Development',
+                focus: 'Frontend & Backend Modern',
+                stack: ['HTML5 & CSS3 Fundamental', 'Modern JavaScript (ES6+)', 'PHP Dasar hingga Lanjutan', 'Laravel Framework'],
+              },
+              {
+                domain: 'Mobile Application',
+                focus: 'Native Mobile Engineering',
+                stack: ['Android Studio & SDK', 'Arsitektur Komponen Mobile', 'Lifecycle & State Management', 'Koneksi REST API'],
+              },
+              {
+                domain: 'Python & Data',
+                focus: 'Logic & Database Modeling',
+                stack: ['Sintaks & Struktur Data Python', 'Logika Algoritma Terapan', 'Relational Database (MySQL)', 'Manipulasi Query & CRUD'],
+              },
+              {
+                domain: 'UI/UX & Desain',
+                focus: 'Interface & User Experience',
+                stack: ['Prinsip Desain Antarmuka', 'Wireframing & Typography', 'Prototyping Interaktif di Figma', 'Pengujian Usability'],
+              },
+            ].map((item, idx) => (
+              <Reveal key={item.domain} delay={0.06 * (idx + 1)}>
+                <div style={{ border: '1px solid var(--hair)', padding: 20, borderRadius: 'var(--radius)', background: 'var(--surface-2)' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                    {item.focus}
+                  </span>
+                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 14px 0', letterSpacing: '-0.015em' }}>
+                    {item.domain}
+                  </h3>
+                  <ul style={{ margin: 0, paddingLeft: 16, fontSize: '0.88rem', lineHeight: 1.6, color: 'var(--fg-muted)' }}>
+                    {item.stack.map((stk, sIdx) => (
+                      <li key={sIdx} style={{ marginBottom: 4 }}>{stk}</li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 8 — 3 COMPONENTS (Structural Triad Progression)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="08. Komponen"
+        notes="Jabarkan 3 komponen utama kelas: pertemuan materi, tugas mingguan, dan ujian kelayakan di akhir."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 48px)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                METODOLOGI KELAS
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                3 Komponen Utama Kelas
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* Triad Column Progression */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 'clamp(24px, 4vw, 44px)' }}>
+            {[
+              {
+                num: '01',
+                title: 'Materi 15 Pertemuan',
+                lead: 'Pondasi Teori & Praktek di Kelas',
+                desc: 'Dilaksanakan berkala dan didampingi secara langsung oleh 1 - 2 mentor untuk memastikan setiap materi terserap dengan baik.',
+              },
+              {
+                num: '02',
+                title: 'Tugas Mingguan',
+                lead: 'Penguatan Logika Mandiri',
+                desc: 'Latihan mingguan yang dirancang untuk menguji pemahaman konsep dan membiasakan peserta memecahkan error secara mandiri.',
+              },
+              {
+                num: '03',
+                title: 'Ujian Kelayakan',
+                lead: 'Tolok Ukur Standar Kelulusan',
+                desc: 'Tahap pengujian akhir yang mengevaluasi penguasaan materi secara menyeluruh sebagai prasyarat kelulusan resmi.',
+              },
+            ].map((komp, idx) => (
+              <Reveal key={komp.num} delay={0.08 * (idx + 1)}>
+                <div style={{ borderLeft: '2px solid var(--hair)', paddingLeft: 20 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>
+                    {komp.num}
+                  </span>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: '10px 0 4px 0', letterSpacing: '-0.015em' }}>
+                    {komp.title}
+                  </h3>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--fg-faint)', marginBottom: 8 }}>
+                    {komp.lead}
+                  </div>
+                  <p style={{ margin: 0, fontSize: '0.94rem', lineHeight: 1.55, color: 'var(--fg-muted)' }}>
+                    {komp.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 9 — REQUIREMENTS (Structured Compact Checklist)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="09. Syarat Kelulusan"
+        notes="Jelaskan 6 syarat penyelesaian kelas secara transparan. Semua peserta wajib memenuhi kriteria ini untuk dinyatakan lulus."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 36px)' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                  KETENTUAN KELULUSAN
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                  6 Syarat Penyelesaian Kelas 2026
+                </h2>
+              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--primary)', fontWeight: 600 }}>
+                Wajib Terpenuhi
+              </span>
+            </div>
+          </Reveal>
+
+          {/* 2-Column Compact Numbered Checklist */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '14px 40px' }}>
+            {[
+              { num: '01', text: 'Melakukan pendaftaran resmi sebagai peserta kelas KafeKoding 2026.' },
+              { num: '02', text: 'Mengikuti Sesi Pembukaan dan orientasi kelas (sesi saat ini).' },
+              { num: '03', text: 'Menghadiri sesi pertemuan minimal 12 kali (maksimal 4 kali toleransi tidak hadir).' },
+              { num: '04', text: 'Menyelesaikan dan mengumpulkan seluruh penugasan mingguan dari mentor.' },
+              { num: '05', text: 'Mengikuti dan dinyatakan lulus pada ujian kelayakan akhir.' },
+              { num: '06', text: 'Mematuhi peraturan, tata tertib, dan etika yang ditetapkan oleh KafeKoding.' },
+            ].map((syarat, idx) => (
+              <Build key={syarat.num} at={idx + 1}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '10px 0', borderBottom: '1px solid var(--hair-2)' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', paddingTop: 1 }}>
+                    {syarat.num}
+                  </span>
+                  <span style={{ fontSize: '0.98rem', lineHeight: 1.5, color: 'var(--fg)' }}>
+                    {syarat.text}
+                  </span>
+                </div>
+              </Build>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 10 — 15 MEETINGS ROADMAP (Structured Curriculum Schedule)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="10. Tahapan 15 Sesi"
+        notes="Jelaskan tahapan yang akan dilalui peserta selama 15 pertemuan. Tunjukkan bahwa materi dirancang berjenjang dari dasar ke evaluasi akhir."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 40px)' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                  PETA PERJALANAN BELAJAR
+                </span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                  Struktur 15 Pertemuan
+                </h2>
+              </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 600 }}>
+                15 Sesi Terarah
+              </span>
+            </div>
+          </Reveal>
+
+          {/* 4 Roadmap Blocks */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 20 }}>
+            {[
+              {
+                sesi: 'Sesi 01 - 04',
+                fase: 'Fondasi & Logika',
+                detail: 'Pengenalan lingkungan kerja, pemahaman sintaks dasar, dan logika pemrograman terstruktur.',
+              },
+              {
+                sesi: 'Sesi 05 - 09',
+                fase: 'Praktek & Studi Kasus',
+                detail: 'Penerapan konsep pada studi kasus terarah, penanganan error, dan latihan logika lanjutan.',
+              },
+              {
+                sesi: 'Sesi 10 - 13',
+                fase: 'Integrasi & Data',
+                detail: 'Pengembangan fitur menyeluruh, integrasi database, penanganan state, dan optimasi kode.',
+              },
+              {
+                sesi: 'Sesi 14 - 15',
+                fase: 'Review & Ujian Kelayakan',
+                detail: 'Finalisasi tugas mandiri, review komprehensif, dan pelaksanaan ujian kelayakan akhir.',
+              },
+            ].map((road, idx) => (
+              <Reveal key={road.sesi} delay={0.06 * (idx + 1)}>
+                <div style={{ border: '1px solid var(--hair)', padding: 18, borderRadius: 'var(--radius)', background: 'var(--surface-2)' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--primary)', marginBottom: 4 }}>
+                    {road.sesi}
+                  </div>
+                  <h3 style={{ fontSize: '1.12rem', fontWeight: 700, margin: '0 0 8px 0', letterSpacing: '-0.015em' }}>
+                    {road.fase}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
+                    {road.detail}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 11 — OUTCOME (3 Value Pillars)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="11. Nilai Tambah"
+        notes="Tekankan 3 nilai tambah nyata yang didapatkan oleh peserta yang menuntaskan program kelas."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 48px)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                MANFAAT & CAPAIAN
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                Apa yang Kamu Dapatkan?
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* 3 Outcome Columns */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 'clamp(24px, 4vw, 48px)' }}>
+            {[
+              {
+                num: '01',
+                title: 'Ilmu Aplikatif',
+                desc: 'Pemahaman fundamental pemrograman yang kokoh dan kebiasaan membedah masalah yang siap digunakan di perkuliahan maupun dunia kerja.',
+              },
+              {
+                num: '02',
+                title: 'Teman Diskusi',
+                desc: 'Jejaring pertemanan dan rekan belajar suportif yang dapat diajak bertukar pikiran, membedah error, dan berkolaborasi jangka panjang.',
+              },
+              {
+                num: '03',
+                title: 'Sertifikat Kelulusan',
+                desc: 'Bukti verifikasi resmi dari KafeKoding atas dedikasi dan kelayakan kelulusan peserta setelah menuntaskan seluruh syarat kelas.',
+              },
+            ].map((val, idx) => (
+              <Reveal key={val.num} delay={0.08 * (idx + 1)}>
+                <div style={{ borderTop: '2px solid var(--primary)', paddingTop: 18 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)' }}>
+                    CAPAIAN {val.num}
+                  </span>
+                  <h3 style={{ fontSize: '1.28rem', fontWeight: 700, margin: '8px 0 8px 0', letterSpacing: '-0.015em' }}>
+                    {val.title}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: '0.94rem', lineHeight: 1.6, color: 'var(--fg-muted)' }}>
+                    {val.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 12 — COMMUNITY PATHWAY (Journey Progression Map)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="12. Jenjang Komunitas"
+        notes="Jelaskan peluang pasca kelas: peserta yang lulus berkesempatan menjadi bagian dari tim pengembang, mentor, maupun kepengurusan KafeKoding."
+      >
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <Reveal>
+            <div style={{ borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(28px, 4vh, 44px)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                PELUANG BERLANJUT
+              </span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
+                Bergabung Menjadi Bagian dari KafeKoding
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* Journey Flow Steps */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: 20 }}>
+            {[
+              {
+                step: 'Langkah 1',
+                role: 'Peserta Kelas',
+                desc: 'Mengikuti 15 sesi pembelajaran, menyelesaikan tugas berkala, dan menempuh ujian kelayakan.',
+              },
+              {
+                step: 'Langkah 2',
+                role: 'Lulusan Terverifikasi',
+                desc: 'Memperoleh sertifikat resmi dan fondasi pemahaman logika pemrograman yang matang.',
+              },
+              {
+                step: 'Langkah 3',
+                role: 'Anggota Komunitas',
+                desc: 'Terhubung ke dalam ekosistem internal, forum diskusi aktif, dan sharing berkala alumni.',
+              },
+              {
+                step: 'Langkah 4',
+                role: 'Kontributor & Mentor',
+                desc: 'Terlibat dalam Tim Pengembang (Dev Squad), Tim Media, atau menjadi Mentor periode berikutnya.',
+              },
+            ].map((path, idx) => (
+              <Reveal key={path.step} delay={0.06 * (idx + 1)}>
+                <div style={{ borderTop: '2px solid var(--hair)', paddingTop: 16 }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--primary)', letterSpacing: '0.04em' }}>
+                    {path.step.toUpperCase()}
+                  </span>
+                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, margin: '6px 0 6px 0', letterSpacing: '-0.015em' }}>
+                    {path.role}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
+                    {path.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Slide>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SLIDE 13 — CLOSING & Q&A (Editorial Functional Closing)
+          ════════════════════════════════════════════════════════════════ */}
+      <Slide
+        nav="13. Tanya Jawab"
+        notes="Buka sesi tanya jawab interaktif dan berikan instruksi kepada peserta mengenai jadwal pertemuan pertama."
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', textAlign: 'left' }}>
+          {/* Header */}
+          <Reveal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--hair)', paddingBottom: 16 }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
+                  SESI TANYA JAWAB
+                </span>
+                <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3.2rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.03em' }}>
+                  Ada Pertanyaan?
+                </h2>
+              </div>
+              <img
+                src="/kk.png"
+                alt="Logo KafeKoding"
+                style={{ width: 44, height: 44, borderRadius: '50%' }}
+              />
+            </div>
+          </Reveal>
+
+          {/* Center Info: Q&A Link & Next Steps */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: 'clamp(24px, 4vw, 56px)', margin: 'auto 0' }}>
+            <Reveal delay={0.08}>
+              <div>
+                <p style={{ fontSize: '1.08rem', lineHeight: 1.6, color: 'var(--fg)', margin: '0 0 16px 0' }}>
+                  Silakan ajukan pertanyaan seputar teknis kelas, materi, maupun mekanisme pembelajaran.
+                </p>
+                <div style={{ borderLeft: '2px solid var(--primary)', paddingLeft: 18 }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--fg-faint)', textTransform: 'uppercase', marginBottom: 4 }}>
+                    Link Pertanyaan Daring
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.4rem, 2.4vw, 1.8rem)', fontWeight: 700, color: 'var(--primary)' }}>
+                    s.id/kk2026qa
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.16}>
+              <div style={{ borderTop: '1px solid var(--hair)', paddingTop: 16 }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--fg-faint)', textTransform: 'uppercase', marginBottom: 6 }}>
+                  Slogan & Semangat
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--fg)', marginBottom: 8 }}>
+                  "Kami Memilih Turun Tangan."
+                </div>
+                <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--fg-muted)', lineHeight: 1.5 }}>
+                  Sampai jumpa di pertemuan pertama kelas diskusi dan belajar bersama KafeKoding 2026.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Bottom Info Bar */}
+          <Reveal delay={0.24}>
+            <div
+              style={{
+                borderTop: '1px solid var(--hair)',
+                paddingTop: 16,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: 16,
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.88rem',
+                color: 'var(--fg-faint)',
+              }}
+            >
+              <span style={{ fontWeight: 500, color: 'var(--fg-muted)' }}>www.kafekoding.com</span>
+              <span>@kafekoding</span>
+              <span style={{ fontWeight: 500 }}>Periode 2026</span>
+            </div>
+          </Reveal>
+        </div>
       </Slide>
     </Deck>
   );

@@ -13,7 +13,7 @@ body,
   margin: 0;
 }
 html {
-  color-scheme: dark;
+  color-scheme: light;
 } /* set "light" for light decks */
 body {
   background: var(--bg);
