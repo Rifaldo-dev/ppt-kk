@@ -303,97 +303,204 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 3 — HASIL & REKAM JEJAK KAFEKODING (Dedicated Real Proof Showcase)
+          SLIDE 3 — JEJAK & CAPAIAN (Visual Track Record & Real Evidence)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="03. Hasil & Rekam Jejak"
-        notes="Tekankan bahwa KafeKoding berfokus pada hasil nyata: lulusan dan mentor terbukti berprestasi di tingkat nasional, lolos magang industri BUMN/startup, dan mendapatkan kontrak kerja sebelum wisuda."
+        nav="03. Jejak Capaian"
+        notes="Tekankan bahwa KafeKoding berfokus pada hasil nyata: lulusan dan mentor terbukti berprestasi di tingkat nasional, lolos kompetisi cyber security, dan mendapatkan kontrak kerja sebelum wisuda."
       >
-        <div style={{ textAlign: 'left', width: '100%' }}>
-          {/* Header */}
+        <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+          {/* Header Row */}
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 14, marginBottom: 'clamp(18px, 2.5vh, 26px)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                gap: 16,
+                borderBottom: '1px solid var(--hair)',
+                paddingBottom: 'clamp(14px, 2.2vh, 20px)',
+              }}
+            >
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--fg-faint)',
+                    fontWeight: 600,
+                  }}
+                >
                   BUKTI NYATA & CAPAIAN
                 </span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  Hasil & Rekam Jejak KafeKoding
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-head)',
+                    fontSize: 'clamp(2rem, 3.8vw, 3.2rem)',
+                    fontWeight: 700,
+                    margin: '6px 0 0 0',
+                    letterSpacing: '-0.03em',
+                    color: 'var(--fg)',
+                  }}
+                >
+                  Jejak yang Sudah Kami Buat
                 </h2>
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--fg-faint)', fontWeight: 600 }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: 'var(--primary)',
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                }}
+              >
                 Bukan Sekadar Teori
               </span>
             </div>
           </Reveal>
 
-          {/* 3 Prominent Real Achievement Cards (WebP) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 'clamp(16px, 2.5vw, 24px)', marginBottom: 20 }}>
+          {/* 3 Visual Track Record Milestones */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(270px, 100%), 1fr))',
+              gap: 'clamp(20px, 3.5vw, 40px)',
+              margin: 'clamp(20px, 3.5vh, 36px) 0 0 0',
+              alignItems: 'start',
+            }}
+          >
             {[
               {
-                img: '/prestasi/juara-hackathon-2023.webp',
-                badge: 'JUARA 2 NASIONAL',
+                track: '01 / KOMPETISI NASIONAL',
                 title: 'Juara II Hackathon Nasional 2023',
                 highlight: 'Politeknik Negeri Padang (PNP)',
                 detail: 'Tim KafeKoding (Akmal, Citra, Azhari) berhasil meraih Juara 2 dalam kompetisi solusi digital tingkat nasional.',
+                img: '/prestasi/juara-hackathon-2023.webp',
+                amount: null,
               },
               {
-                img: '/prestasi/sevima-security-challenge.webp',
-                badge: 'CYBER SECURITY AWARD',
+                track: '02 / CYBER SECURITY',
                 title: 'SEVIMA Security Challenge 2026',
-                highlight: 'Best Writeup — Rp 26.500.000',
+                highlight: 'Best Writeup',
+                amount: 'Rp 26.500.000',
                 detail: 'Raihan penghargaan Best Writeup pada ajang kompetisi keamanan siber nasional SEVIMA Security Challenge 2026.',
+                img: '/prestasi/sevima-security-challenge.webp',
               },
               {
-                img: '/prestasi/kontrak-kerja-alif-reyhan.webp',
-                badge: 'KONTRAK KERJA INDUSTRI',
+                track: '03 / INDUSTRI & KARIR',
                 title: 'Rekrutmen Sebelum Lulus',
                 highlight: 'Universitas Metamedia',
                 detail: 'Alif Budiman & Reyhan Dwi Syaputra telah mengantongi kontrak kerja software engineer saat masih berstatus mahasiswa aktif.',
+                img: '/prestasi/kontrak-kerja-alif-reyhan.webp',
+                amount: null,
               },
-            ].map((prestasi, idx) => (
-              <Reveal key={prestasi.title} delay={0.06 * (idx + 1)}>
-                <div
-                  style={{
-                    border: '1px solid var(--hair)',
-                    borderRadius: 'var(--radius)',
-                    overflow: 'hidden',
-                    background: 'var(--surface-1)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '100%',
-                  }}
-                >
-                  <div style={{ position: 'relative', width: '100%', paddingTop: '72%', background: '#090d16' }}>
-                    <img
-                      src={prestasi.img}
-                      alt={prestasi.title}
-                      loading="lazy"
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                  </div>
-                  <div style={{ padding: '14px 16px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
-                    <div>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.05em' }}>
-                        {prestasi.badge}
-                      </span>
-                      <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '4px 0 2px 0', color: 'var(--fg)', letterSpacing: '-0.015em' }}>
-                        {prestasi.title}
-                      </h3>
-                      <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--fg)', marginBottom: 6 }}>
-                        {prestasi.highlight}
-                      </div>
-                      <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--fg-muted)', lineHeight: 1.45 }}>
-                        {prestasi.detail}
-                      </p>
+            ].map((milestone, idx) => (
+              <Reveal key={milestone.title} delay={0.06 * (idx + 1)}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {/* Evidence Photo Container */}
+                  <div
+                    style={{
+                      width: '100%',
+                      borderRadius: 'var(--radius)',
+                      overflow: 'hidden',
+                      border: '1px solid var(--hair)',
+                      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
+                      background: '#090d16',
+                    }}
+                  >
+                    <div style={{ position: 'relative', width: '100%', paddingTop: '68%' }}>
+                      <img
+                        src={milestone.img}
+                        alt={milestone.title}
+                        loading="lazy"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
                     </div>
+                  </div>
+
+                  {/* Typography & Content Block */}
+                  <div>
+                    {/* Track Indicator */}
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        color: 'var(--primary)',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        marginBottom: 4,
+                      }}
+                    >
+                      {milestone.track}
+                    </div>
+
+                    {/* Milestone Title */}
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-head)',
+                        fontSize: 'clamp(1.08rem, 1.35vw, 1.25rem)',
+                        fontWeight: 700,
+                        margin: '0 0 4px 0',
+                        color: 'var(--fg)',
+                        letterSpacing: '-0.02em',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {milestone.title}
+                    </h3>
+
+                    {/* Context & Documented Amount */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'baseline',
+                        gap: 8,
+                        flexWrap: 'wrap',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        color: 'var(--fg)',
+                        marginBottom: 6,
+                      }}
+                    >
+                      <span>{milestone.highlight}</span>
+                      {milestone.amount && (
+                        <span
+                          style={{
+                            fontFamily: 'var(--font-mono)',
+                            color: 'var(--primary)',
+                            fontWeight: 700,
+                            fontSize: '0.92rem',
+                          }}
+                        >
+                          — {milestone.amount}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Secondary Explanatory Text */}
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: '0.84rem',
+                        lineHeight: 1.5,
+                        color: 'var(--fg-muted)',
+                      }}
+                    >
+                      {milestone.detail}
+                    </p>
                   </div>
                 </div>
               </Reveal>
