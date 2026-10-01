@@ -1,8 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Deck from './deck/Deck';
 import Slide from './deck/Slide';
 import Reveal from './deck/Reveal';
 import Build from './deck/Build';
+
+function ClassroomPhotoSlideshow() {
+  const [index, setIndex] = useState(0);
+  const images = [
+    {
+      src: '/prestasi/suasana-kelas.webp',
+      alt: 'Suasana Belajar dan Diskusi Kelas KafeKoding',
+    },
+    {
+      src: '/prestasi/suasana-kelas-2.webp',
+      alt: 'Mentoring dan Praktik Lab Kelas KafeKoding',
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div style={{ position: 'relative', width: '100%', paddingTop: '66%', background: '#090d16', overflow: 'hidden' }}>
+      {images.map((img, i) => (
+        <img
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            opacity: index === i ? 1 : 0,
+            transition: 'opacity 0.6s ease-in-out',
+          }}
+        />
+      ))}
+      {/* Subtle indicator dots */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 10,
+          right: 12,
+          display: 'flex',
+          gap: 6,
+          zIndex: 2,
+          background: 'rgba(0, 0, 0, 0.45)',
+          padding: '4px 8px',
+          borderRadius: 20,
+          backdropFilter: 'blur(4px)',
+        }}
+      >
+        {images.map((_, i) => (
+          <span
+            key={i}
+            style={{
+              width: index === i ? 14 : 5,
+              height: 5,
+              borderRadius: 3,
+              background: index === i ? '#3b82f6' : 'rgba(255, 255, 255, 0.5)',
+              transition: 'all 0.3s ease',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -607,22 +680,7 @@ export default function App() {
                   background: 'var(--surface-1)',
                 }}
               >
-                <div style={{ position: 'relative', width: '100%', paddingTop: '66%', background: '#090d16' }}>
-                  <img
-                    src="/prestasi/suasana-kelas.webp"
-                    alt="Suasana Belajar dan Mentoring Kelas KafeKoding"
-                    loading="lazy"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block',
-                    }}
-                  />
-                </div>
+                <ClassroomPhotoSlideshow />
                 <div
                   style={{
                     padding: '12px 18px',
