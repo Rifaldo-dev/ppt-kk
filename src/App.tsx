@@ -836,62 +836,113 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 7 — CLOSING & Q&A (Editorial Functional Closing)
+          SLIDE 7 — CLOSING & Q&A (Editorial Closing with Video Background)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="07. Tanya Jawab"
-        notes="Buka sesi tanya jawab interaktif dan berikan instruksi kepada peserta mengenai jadwal pertemuan pertama."
+        notes="Buka sesi tanya jawab interaktif dan sampaikan salam penutup untuk memulai perjalanan belajar bersama KafeKoding 2026."
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(20px, 3vh, 32px)', textAlign: 'left' }}>
-          {/* Header */}
+        {/* Background Video Layer Khusus Slide 7 */}
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: 'none',
+            overflow: 'hidden',
+          }}
+          aria-hidden="true"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: '100vw',
+              height: '100vh',
+              objectFit: 'cover',
+              opacity: 0.22,
+              filter: 'grayscale(10%) contrast(105%)',
+            }}
+          >
+            <source src="/bg.mp4" type="video/mp4" />
+            <source src="https://kafekoding.vercel.app/assets/dokumentasi/bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', textAlign: 'left' }}>
+          {/* Header Bar */}
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--hair)', paddingBottom: 16 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--hair)', paddingBottom: 16 }}>
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
-                  SESI TANYA JAWAB
-                </span>
-                <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3.2rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.03em' }}>
-                  Ada Pertanyaan?
-                </h2>
+                <img
+                  src="/kk.webp"
+                  alt="Logo KafeKoding"
+                  style={{ width: 'clamp(38px, 4vw, 48px)', height: 'clamp(38px, 4vw, 48px)', borderRadius: '50%', display: 'block' }}
+                />
               </div>
-              <img
-                src="/kk.webp"
-                alt="Logo KafeKoding"
-                style={{ width: 44, height: 44, borderRadius: '50%' }}
-              />
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.8rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  fontWeight: 600,
+                }}
+              >
+                SESI TANYA JAWAB & PENUTUP
+              </span>
             </div>
           </Reveal>
 
-          {/* Center Info: Q&A Link & Next Steps */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: 'clamp(24px, 4vw, 56px)', margin: 'auto 0' }}>
-            <Reveal delay={0.08}>
-              <div>
-                <p style={{ fontSize: '1.08rem', lineHeight: 1.6, color: 'var(--fg)', margin: '0 0 16px 0' }}>
-                  Silakan ajukan pertanyaan seputar teknis kelas, materi, maupun mekanisme pembelajaran.
-                </p>
-                <div style={{ borderLeft: '2px solid var(--primary)', paddingLeft: 18 }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--fg-faint)', textTransform: 'uppercase', marginBottom: 4 }}>
-                    Link Pertanyaan Daring
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(1.4rem, 2.4vw, 1.8rem)', fontWeight: 700, color: 'var(--primary)' }}>
-                    s.id/kk2026qa
-                  </div>
-                </div>
+          {/* Center Main Message */}
+          <div style={{ maxWidth: 840, margin: 'auto 0' }}>
+            <Reveal delay={0.06}>
+              <h2
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontSize: 'clamp(2.5rem, 5.2vw, 4.4rem)',
+                  fontWeight: 700,
+                  lineHeight: 1.05,
+                  margin: '0 0 16px 0',
+                  letterSpacing: '-0.035em',
+                  color: 'var(--fg)',
+                }}
+              >
+                Ada Pertanyaan?
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.12}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontSize: 'clamp(1.25rem, 2.4vw, 1.9rem)',
+                  fontWeight: 600,
+                  color: 'var(--primary)',
+                  letterSpacing: '-0.02em',
+                  marginBottom: 14,
+                }}
+              >
+                "Kami Memilih Turun Tangan."
               </div>
             </Reveal>
 
-            <Reveal delay={0.16}>
-              <div style={{ borderTop: '1px solid var(--hair)', paddingTop: 16 }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--fg-faint)', textTransform: 'uppercase', marginBottom: 6 }}>
-                  Slogan & Semangat
-                </div>
-                <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--fg)', marginBottom: 8 }}>
-                  "Kami Memilih Turun Tangan."
-                </div>
-                <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--fg-muted)', lineHeight: 1.5 }}>
-                  Sampai jumpa di pertemuan pertama kelas diskusi dan belajar bersama KafeKoding 2026.
-                </p>
-              </div>
+            <Reveal delay={0.18}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
+                  lineHeight: 1.6,
+                  color: 'var(--fg-muted)',
+                  maxWidth: '44ch',
+                  margin: 0,
+                }}
+              >
+                Sampai jumpa di pertemuan pertama kelas diskusi dan belajar bersama KafeKoding 2026.
+              </p>
             </Reveal>
           </div>
 
@@ -907,7 +958,7 @@ export default function App() {
                 flexWrap: 'wrap',
                 gap: 16,
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 color: 'var(--fg-faint)',
               }}
             >
