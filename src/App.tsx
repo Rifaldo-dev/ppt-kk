@@ -303,11 +303,11 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 3 — JEJAK & CAPAIAN (Visual Track Record & Real Evidence)
+          SLIDE 3 — MATERI PEMBELAJARAN (Curriculum Stacks & Technologies)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="03. Jejak Capaian"
-        notes="Tekankan bahwa KafeKoding berfokus pada hasil nyata: lulusan dan mentor terbukti berprestasi di tingkat nasional, lolos kompetisi cyber security, dan mendapatkan kontrak kerja sebelum wisuda."
+        nav="03. Materi Pembelajaran"
+        notes="Jelaskan ragam teknologi yang dipelajari mulai dari HTML/CSS, PHP, Laravel, Database, JavaScript, Android, hingga UI/UX Design."
       >
         <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {/* Header Row */}
@@ -334,7 +334,7 @@ export default function App() {
                     fontWeight: 600,
                   }}
                 >
-                  BUKTI NYATA & CAPAIAN
+                  KURIKULUM & TEKNOLOGI
                 </span>
                 <h2
                   style={{
@@ -346,7 +346,7 @@ export default function App() {
                     color: 'var(--fg)',
                   }}
                 >
-                  Jejak yang Sudah Kami Buat
+                  Materi yang Akan Dipelajari
                 </h2>
               </div>
               <span
@@ -358,148 +358,96 @@ export default function App() {
                   letterSpacing: '0.04em',
                 }}
               >
-                Bukan Sekadar Teori
+                Pilihan Domain Terarah
               </span>
             </div>
           </Reveal>
 
-          {/* 3 Visual Track Record Milestones */}
+          {/* Stacks Grid in Open Editorial Layout */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(270px, 100%), 1fr))',
-              gap: 'clamp(20px, 3.5vw, 40px)',
-              margin: 'clamp(20px, 3.5vh, 36px) 0 0 0',
-              alignItems: 'start',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+              gap: 'clamp(18px, 2.8vw, 28px)',
+              margin: 'clamp(20px, 3vh, 32px) 0 0 0',
             }}
           >
             {[
               {
-                track: '01 / KOMPETISI NASIONAL',
-                title: 'Juara II Hackathon Nasional 2023',
-                highlight: 'Politeknik Negeri Padang (PNP)',
-                detail: 'Tim KafeKoding (Akmal, Citra, Azhari) berhasil meraih Juara 2 dalam kompetisi solusi digital tingkat nasional.',
-                img: '/prestasi/juara-hackathon-2023.webp',
-                amount: null,
+                category: 'WEB FUNDAMENTAL',
+                title: 'HTML5 & CSS3',
+                desc: 'Membangun struktur semantik web, teknik styling modern, flexbox, grid, dan tata letak responsif.',
               },
               {
-                track: '02 / CYBER SECURITY',
-                title: 'SEVIMA Security Challenge 2026',
-                highlight: 'Best Writeup',
-                amount: 'Rp 26.500.000',
-                detail: 'Raihan penghargaan Best Writeup pada ajang kompetisi keamanan siber nasional SEVIMA Security Challenge 2026.',
-                img: '/prestasi/sevima-security-challenge.webp',
+                category: 'INTERAKTIVITAS & LOGIKA',
+                title: 'Modern JavaScript',
+                desc: 'Logika algoritma, manipulasi DOM, pemrosesan data async, dan dasar-dasar ES6+ terkini.',
               },
               {
-                track: '03 / INDUSTRI & KARIR',
-                title: 'Rekrutmen Sebelum Lulus',
-                highlight: 'Universitas Metamedia',
-                detail: 'Alif Budiman & Reyhan Dwi Syaputra telah mengantongi kontrak kerja software engineer saat masih berstatus mahasiswa aktif.',
-                img: '/prestasi/kontrak-kerja-alif-reyhan.webp',
-                amount: null,
+                category: 'BACKEND & FRAMEWORK',
+                title: 'PHP & Laravel',
+                desc: 'Arsitektur MVC, routing, controller, autentikasi aman, dan pembuatan RESTful API siap pakai.',
               },
-            ].map((milestone, idx) => (
-              <Reveal key={milestone.title} delay={0.06 * (idx + 1)}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                  {/* Evidence Photo Container */}
-                  <div
-                    style={{
-                      width: '100%',
-                      borderRadius: 'var(--radius)',
-                      overflow: 'hidden',
-                      border: '1px solid var(--hair)',
-                      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
-                      background: '#090d16',
-                    }}
-                  >
-                    <div style={{ position: 'relative', width: '100%', paddingTop: '68%' }}>
-                      <img
-                        src={milestone.img}
-                        alt={milestone.title}
-                        loading="lazy"
-                        style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          display: 'block',
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Typography & Content Block */}
+              {
+                category: 'PENGELOLAAN DATA',
+                title: 'Database (MySQL)',
+                desc: 'Perancangan skema relasional, optimasi query SQL, relasi tabel, dan manipulasi data CRUD.',
+              },
+              {
+                category: 'MOBILE ENGINEERING',
+                title: 'Android Development',
+                desc: 'Pengembangan aplikasi native dengan Android Studio, SDK modern, dan koneksi ke web service.',
+              },
+              {
+                category: 'DESAIN PRODUK',
+                title: 'UI/UX & Prototyping',
+                desc: 'Prinsip desain antarmuka, wireframing, typography, dan interactive prototyping di Figma.',
+              },
+            ].map((tech, idx) => (
+              <Reveal key={tech.title} delay={0.04 * (idx + 1)}>
+                <div
+                  style={{
+                    borderTop: '2px solid var(--hair)',
+                    paddingTop: 12,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}
+                >
                   <div>
-                    {/* Track Indicator */}
-                    <div
+                    <span
                       style={{
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '0.74rem',
+                        fontSize: '0.72rem',
                         fontWeight: 700,
                         color: 'var(--primary)',
-                        letterSpacing: '0.08em',
+                        letterSpacing: '0.06em',
                         textTransform: 'uppercase',
-                        marginBottom: 4,
                       }}
                     >
-                      {milestone.track}
-                    </div>
-
-                    {/* Milestone Title */}
+                      {tech.category}
+                    </span>
                     <h3
                       style={{
                         fontFamily: 'var(--font-head)',
-                        fontSize: 'clamp(1.08rem, 1.35vw, 1.25rem)',
+                        fontSize: 'clamp(1.1rem, 1.35vw, 1.25rem)',
                         fontWeight: 700,
-                        margin: '0 0 4px 0',
+                        margin: '4px 0 6px 0',
                         color: 'var(--fg)',
-                        letterSpacing: '-0.02em',
-                        lineHeight: 1.3,
+                        letterSpacing: '-0.015em',
                       }}
                     >
-                      {milestone.title}
+                      {tech.title}
                     </h3>
-
-                    {/* Context & Documented Amount */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        gap: 8,
-                        flexWrap: 'wrap',
-                        fontSize: '0.88rem',
-                        fontWeight: 600,
-                        color: 'var(--fg)',
-                        marginBottom: 6,
-                      }}
-                    >
-                      <span>{milestone.highlight}</span>
-                      {milestone.amount && (
-                        <span
-                          style={{
-                            fontFamily: 'var(--font-mono)',
-                            color: 'var(--primary)',
-                            fontWeight: 700,
-                            fontSize: '0.92rem',
-                          }}
-                        >
-                          — {milestone.amount}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Secondary Explanatory Text */}
                     <p
                       style={{
                         margin: 0,
-                        fontSize: '0.84rem',
+                        fontSize: '0.86rem',
                         lineHeight: 1.5,
                         color: 'var(--fg-muted)',
                       }}
                     >
-                      {milestone.detail}
+                      {tech.desc}
                     </p>
                   </div>
                 </div>
@@ -717,7 +665,7 @@ export default function App() {
         nav="05. Syarat Kelulusan"
         notes="Jelaskan 6 syarat kelulusan secara lugas. Tekankan batas toleransi kehadiran (maksimal 4 kali) dan kewajiban mengumpulkan tugas."
       >
-        <div style={{ textAlign: 'left', width: '100%' }}>
+        <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           <Reveal>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 36px)' }}>
               <div>
@@ -735,7 +683,7 @@ export default function App() {
           </Reveal>
 
           {/* 2-Column Compact Numbered Checklist */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '14px 40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '14px 40px', margin: 'auto 0' }}>
             {[
               { num: '01', text: 'Melakukan pendaftaran resmi sebagai peserta kelas KafeKoding 2026.' },
               { num: '02', text: 'Mengikuti Sesi Pembukaan dan orientasi kelas (sesi saat ini).' },
@@ -760,77 +708,208 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 6 — MANFAAT & JENJANG KOMUNITAS (Merged Value & Pathway)
+          SLIDE 6 — JEJAK & CAPAIAN (Visual Track Record & Real Evidence)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="06. Manfaat & Jenjang"
-        notes="Sampaikan manfaat nyata yang didapat peserta dan jalur jenjang kelanjutan setelah lulus menjadi kontributor maupun mentor."
+        nav="06. Jejak Capaian"
+        notes="Tekankan bahwa KafeKoding berfokus pada hasil nyata: lulusan dan mentor terbukti berprestasi di tingkat nasional, lolos kompetisi cyber security, dan mendapatkan kontrak kerja sebelum wisuda."
       >
-        <div style={{ textAlign: 'left', width: '100%' }}>
-          {/* Header */}
+        <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+          {/* Header Row */}
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 14, marginBottom: 'clamp(20px, 3vh, 32px)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                gap: 16,
+                borderBottom: '1px solid var(--hair)',
+                paddingBottom: 'clamp(14px, 2.2vh, 20px)',
+              }}
+            >
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
-                  NILAI TAMBAH & PELUANG
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--fg-faint)',
+                    fontWeight: 600,
+                  }}
+                >
+                  BUKTI NYATA & CAPAIAN
                 </span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  Apa yang Kamu Dapatkan & Jenjang Karir
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-head)',
+                    fontSize: 'clamp(2rem, 3.8vw, 3.2rem)',
+                    fontWeight: 700,
+                    margin: '6px 0 0 0',
+                    letterSpacing: '-0.03em',
+                    color: 'var(--fg)',
+                  }}
+                >
+                  Jejak yang Sudah Kami Buat
                 </h2>
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--primary)', fontWeight: 600 }}>
-                Ekosistem Berkelanjutan
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: 'var(--primary)',
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                }}
+              >
+                Bukan Sekadar Teori
               </span>
             </div>
           </Reveal>
 
-          {/* 2-Section Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: 'clamp(20px, 3.5vw, 40px)' }}>
-            {/* Left: 3 Manfaat Kelulusan */}
-            <div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: 14 }}>
-                Capaian Bagi Lulusan
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                {[
-                  { num: '01', title: 'Ilmu Aplikatif', desc: 'Pondasi logika dan kebiasaan membedah masalah yang siap digunakan di perkuliahan & industri.' },
-                  { num: '02', title: 'Teman Diskusi & Relasi', desc: 'Jejaring belajar suportif untuk bertukar pikiran, bedah error, dan kolaborasi jangka panjang.' },
-                  { num: '03', title: 'Sertifikat Kelulusan Resmi', desc: 'Verifikasi kelulusan resmi atas dedikasi dan penguasaan kompetensi selama program.' },
-                ].map((val, idx) => (
-                  <Reveal key={val.num} delay={0.05 * (idx + 1)}>
-                    <div style={{ borderLeft: '2px solid var(--primary)', paddingLeft: 14 }}>
-                      <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '0 0 2px 0' }}>{val.title}</h3>
-                      <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--fg-muted)', lineHeight: 1.5 }}>{val.desc}</p>
+          {/* 3 Visual Track Record Milestones */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(270px, 100%), 1fr))',
+              gap: 'clamp(20px, 3.5vw, 40px)',
+              margin: 'clamp(20px, 3.5vh, 36px) 0 0 0',
+              alignItems: 'start',
+            }}
+          >
+            {[
+              {
+                track: '01 / KOMPETISI NASIONAL',
+                title: 'Juara II Hackathon Nasional 2023',
+                highlight: 'Politeknik Negeri Padang (PNP)',
+                detail: 'Tim KafeKoding (Akmal, Citra, Azhari) berhasil meraih Juara 2 dalam kompetisi solusi digital tingkat nasional.',
+                img: '/prestasi/juara-hackathon-2023.webp',
+                amount: null,
+              },
+              {
+                track: '02 / CYBER SECURITY',
+                title: 'SEVIMA Security Challenge 2026',
+                highlight: 'Best Writeup',
+                amount: 'Rp 26.500.000',
+                detail: 'Raihan penghargaan Best Writeup pada ajang kompetisi keamanan siber nasional SEVIMA Security Challenge 2026.',
+                img: '/prestasi/sevima-security-challenge.webp',
+              },
+              {
+                track: '03 / INDUSTRI & KARIR',
+                title: 'Rekrutmen Sebelum Lulus',
+                highlight: 'Universitas Metamedia',
+                detail: 'Alif Budiman & Reyhan Dwi Syaputra telah mengantongi kontrak kerja software engineer saat masih berstatus mahasiswa aktif.',
+                img: '/prestasi/kontrak-kerja-alif-reyhan.webp',
+                amount: null,
+              },
+            ].map((milestone, idx) => (
+              <Reveal key={milestone.title} delay={0.06 * (idx + 1)}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {/* Evidence Photo Container */}
+                  <div
+                    style={{
+                      width: '100%',
+                      borderRadius: 'var(--radius)',
+                      overflow: 'hidden',
+                      border: '1px solid var(--hair)',
+                      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
+                      background: '#090d16',
+                    }}
+                  >
+                    <div style={{ position: 'relative', width: '100%', paddingTop: '68%' }}>
+                      <img
+                        src={milestone.img}
+                        alt={milestone.title}
+                        loading="lazy"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
                     </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+                  </div>
 
-            {/* Right: 4 Langkah Jenjang Komunitas */}
-            <div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--fg-faint)', textTransform: 'uppercase', marginBottom: 14 }}>
-                Jalur Pengembangan Komunitas
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                {[
-                  { step: '01', role: 'Peserta Kelas', desc: '15 sesi belajar & ujian kelayakan.' },
-                  { step: '02', role: 'Lulusan Resmi', desc: 'Fondasi matang & sertifikat resmi.' },
-                  { step: '03', role: 'Anggota Komunitas', desc: 'Ekosistem internal & sharing alumni.' },
-                  { step: '04', role: 'Dev Squad & Mentor', desc: 'Tim developer & mentor periode baru.' },
-                ].map((pth, idx) => (
-                  <Reveal key={pth.step} delay={0.06 * (idx + 1)}>
-                    <div style={{ border: '1px solid var(--hair)', padding: 12, borderRadius: 'var(--radius)', background: 'var(--surface-2)' }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', fontWeight: 700, color: 'var(--primary)' }}>
-                        FASE {pth.step}
-                      </span>
-                      <h4 style={{ fontSize: '0.96rem', fontWeight: 700, margin: '2px 0 4px 0' }}>{pth.role}</h4>
-                      <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--fg-muted)', lineHeight: 1.4 }}>{pth.desc}</p>
+                  {/* Typography & Content Block */}
+                  <div>
+                    {/* Track Indicator */}
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        color: 'var(--primary)',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        marginBottom: 4,
+                      }}
+                    >
+                      {milestone.track}
                     </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+
+                    {/* Milestone Title */}
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-head)',
+                        fontSize: 'clamp(1.08rem, 1.35vw, 1.25rem)',
+                        fontWeight: 700,
+                        margin: '0 0 4px 0',
+                        color: 'var(--fg)',
+                        letterSpacing: '-0.02em',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {milestone.title}
+                    </h3>
+
+                    {/* Context & Documented Amount */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'baseline',
+                        gap: 8,
+                        flexWrap: 'wrap',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        color: 'var(--fg)',
+                        marginBottom: 6,
+                      }}
+                    >
+                      <span>{milestone.highlight}</span>
+                      {milestone.amount && (
+                        <span
+                          style={{
+                            fontFamily: 'var(--font-mono)',
+                            color: 'var(--primary)',
+                            fontWeight: 700,
+                            fontSize: '0.92rem',
+                          }}
+                        >
+                          — {milestone.amount}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Secondary Explanatory Text */}
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: '0.84rem',
+                        lineHeight: 1.5,
+                        color: 'var(--fg-muted)',
+                      }}
+                    >
+                      {milestone.detail}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Slide>
