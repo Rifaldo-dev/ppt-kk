@@ -49,7 +49,7 @@ export default function App() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, borderBottom: '1px solid var(--hair)', paddingBottom: 16 }}>
               <div>
                 <img
-                  src="/kk.png"
+                  src="/kk.webp"
                   alt="Logo KafeKoding"
                   style={{
                     width: 'clamp(76px, 8.5vw, 100px)',
@@ -346,89 +346,116 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 4 — MATERI & ALUR 15 PERTEMUAN (Curriculum & Learning Journey)
+          SLIDE 4 — STRUKTUR 15 PERTEMUAN (15-Session Structure & Lab Atmosphere)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="04. Kurikulum & Alur"
-        notes="Jelaskan 4 domain kurikulum yang diajarkan dan bagaimana materi tersebut didistribusikan dalam 15 pertemuan berjenjang."
+        nav="04. Struktur 15 Sesi"
+        notes="Jelaskan 4 tahapan alur belajar selama 15 pertemuan tatap muka di lab bersama mentor pendamping."
       >
         <div style={{ textAlign: 'left', width: '100%' }}>
           {/* Header */}
           <Reveal>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 14, marginBottom: 'clamp(18px, 2.5vh, 26px)' }}>
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
-                  KURIKULUM & PETA PERJALANAN
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
+                  ALUR & METODOLOGI BELAJAR
                 </span>
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  Domain Materi & Struktur 15 Sesi
+                  Struktur 15 Sesi Pertemuan Kelas
                 </h2>
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--primary)', fontWeight: 600 }}>
-                15 Pertemuan Terarah
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--fg-faint)', fontWeight: 600 }}>
+                15 Sesi Intensif di Lab
               </span>
             </div>
           </Reveal>
 
-          {/* Top: 4 Domain Kurikulum */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: 12, marginBottom: 18 }}>
-            {[
-              { domain: 'Web Development', stack: 'HTML5, Modern JS, PHP, Laravel' },
-              { domain: 'Mobile Application', stack: 'Android SDK, Architecture, REST API' },
-              { domain: 'Python & Data', stack: 'Sintaks, Algoritma, Database MySQL' },
-              { domain: 'UI/UX & Desain', stack: 'Wireframe, Typography, Figma Prototype' },
-            ].map((item, idx) => (
-              <Reveal key={item.domain} delay={0.04 * (idx + 1)}>
-                <div style={{ border: '1px solid var(--hair)', padding: '10px 14px', borderRadius: 'var(--radius)', background: 'var(--surface-2)' }}>
-                  <h3 style={{ fontSize: '0.94rem', fontWeight: 700, margin: '0 0 2px 0', color: 'var(--fg)' }}>
-                    {item.domain}
-                  </h3>
-                  <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--fg-muted)', lineHeight: 1.35 }}>
-                    {item.stack}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Bottom: 4 Roadmap Phases */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: 14 }}>
-            {[
-              {
-                sesi: 'Sesi 01 - 04',
-                fase: 'Fondasi & Logika',
-                detail: 'Setup lingkungan kerja, sintaks dasar, dan logika komputasi terstruktur.',
-              },
-              {
-                sesi: 'Sesi 05 - 09',
-                fase: 'Praktek Studi Kasus',
-                detail: 'Penerapan konsep pada studi kasus nyata, debugging, dan pemecahan error.',
-              },
-              {
-                sesi: 'Sesi 10 - 13',
-                fase: 'Integrasi & Data',
-                detail: 'Pengembangan fitur lengkap, integrasi database, dan optimasi performa.',
-              },
-              {
-                sesi: 'Sesi 14 - 15',
-                fase: 'Review & Ujian Kelayakan',
-                detail: 'Finalisasi tugas mandiri, review komprehensif, dan ujian kelayakan akhir.',
-              },
-            ].map((road, idx) => (
-              <Reveal key={road.sesi} delay={0.05 * (idx + 1)}>
-                <div style={{ borderTop: '2px solid var(--primary)', paddingTop: 12 }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 600, color: 'var(--primary)', marginBottom: 2 }}>
-                    {road.sesi}
+          {/* 2-Column Layout: 4 Fase Belajar di Kiri, Foto Suasana Kelas di Kanan */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))', gap: 'clamp(20px, 3vw, 36px)', alignItems: 'center' }}>
+            {/* Kolom Kiri: 4 Fase Pembelajaran */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {[
+                {
+                  sesi: 'Sesi 01 - 04',
+                  fase: 'Fondasi & Logika Dasar',
+                  detail: 'Pengenalan lingkungan kerja, sintaks fundamental, dan logika algoritma terstruktur.',
+                },
+                {
+                  sesi: 'Sesi 05 - 09',
+                  fase: 'Praktek & Studi Kasus',
+                  detail: 'Penerapan konsep pada kasus nyata, teknik debugging, dan pemecahan error bersama.',
+                },
+                {
+                  sesi: 'Sesi 10 - 13',
+                  fase: 'Integrasi & Pengolahan Data',
+                  detail: 'Pengembangan fitur menyeluruh, integrasi database, dan optimasi performa kode.',
+                },
+                {
+                  sesi: 'Sesi 14 - 15',
+                  fase: 'Review & Ujian Kelayakan',
+                  detail: 'Finalisasi tugas mandiri, review komprehensif, dan evaluasi kelayakan akhir.',
+                },
+              ].map((road, idx) => (
+                <Reveal key={road.sesi} delay={0.05 * (idx + 1)}>
+                  <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 14 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary)' }}>
+                        {road.sesi}
+                      </span>
+                      <span style={{ color: 'var(--hair)' }}>·</span>
+                      <h3 style={{ fontSize: '1.02rem', fontWeight: 700, margin: 0, color: 'var(--fg)' }}>
+                        {road.fase}
+                      </h3>
+                    </div>
+                    <p style={{ margin: 0, fontSize: '0.84rem', lineHeight: 1.45, color: 'var(--fg-muted)' }}>
+                      {road.detail}
+                    </p>
                   </div>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 700, margin: '0 0 4px 0', letterSpacing: '-0.015em' }}>
-                    {road.fase}
-                  </h4>
-                  <p style={{ margin: 0, fontSize: '0.82rem', lineHeight: 1.45, color: 'var(--fg-muted)' }}>
-                    {road.detail}
-                  </p>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Kolom Kanan: Foto Dokumentasi Suasana Kelas Lab */}
+            <Reveal delay={0.2}>
+              <div
+                style={{
+                  border: '1px solid var(--hair)',
+                  borderRadius: 'var(--radius)',
+                  overflow: 'hidden',
+                  background: 'var(--surface-1)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.06)',
+                }}
+              >
+                <div style={{ position: 'relative', width: '100%', paddingTop: '62%', background: '#090d16' }}>
+                  <img
+                    src="/prestasi/suasana-kelas.webp"
+                    alt="Suasana Belajar dan Mentoring Kelas KafeKoding"
+                    loading="lazy"
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
                 </div>
-              </Reveal>
-            ))}
+                <div style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--hair)' }}>
+                  <div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--fg)' }}>
+                      Sesi Belajar & Mentoring Langsung
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--fg-muted)' }}>
+                      Didampingi 1 - 2 mentor praktisi di setiap pertemuan lab
+                    </div>
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)', background: '#eff6ff', padding: '3px 8px', borderRadius: 4 }}>
+                    TATAP MUKA
+                  </span>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </Slide>
@@ -578,7 +605,7 @@ export default function App() {
                 </h2>
               </div>
               <img
-                src="/kk.png"
+                src="/kk.webp"
                 alt="Logo KafeKoding"
                 style={{ width: 44, height: 44, borderRadius: '50%' }}
               />
