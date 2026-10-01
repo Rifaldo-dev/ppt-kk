@@ -510,34 +510,78 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 4 — STRUKTUR 15 PERTEMUAN (15-Session Structure & Lab Atmosphere)
+          SLIDE 4 — STRUKTUR 15 PERTEMUAN (15-Session Learning Journey & Lab Evidence)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="04. Struktur 15 Sesi"
         notes="Jelaskan 4 tahapan alur belajar selama 15 pertemuan tatap muka di lab bersama mentor pendamping."
       >
-        <div style={{ textAlign: 'left', width: '100%' }}>
-          {/* Header */}
+        <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+          {/* Header Row */}
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 14, marginBottom: 'clamp(18px, 2.5vh, 26px)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                gap: 16,
+                borderBottom: '1px solid var(--hair)',
+                paddingBottom: 'clamp(14px, 2.2vh, 20px)',
+              }}
+            >
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 600 }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--fg-faint)',
+                    fontWeight: 600,
+                  }}
+                >
                   ALUR & METODOLOGI BELAJAR
                 </span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  Struktur 15 Sesi Pertemuan Kelas
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-head)',
+                    fontSize: 'clamp(2rem, 3.8vw, 3.2rem)',
+                    fontWeight: 700,
+                    margin: '6px 0 0 0',
+                    letterSpacing: '-0.03em',
+                    color: 'var(--fg)',
+                  }}
+                >
+                  Struktur 15 Sesi Pembelajaran
                 </h2>
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--fg-faint)', fontWeight: 600 }}>
-                15 Sesi Intensif di Lab
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: 'var(--primary)',
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                }}
+              >
+                Tatap Muka & Mentoring di Lab
               </span>
             </div>
           </Reveal>
 
-          {/* 2-Column Layout: 4 Fase Belajar di Kiri, Foto Suasana Kelas di Kanan */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))', gap: 'clamp(20px, 3vw, 36px)', alignItems: 'center' }}>
-            {/* Kolom Kiri: 4 Fase Pembelajaran */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* 2-Column Asymmetric Layout: 4 Phases on Left, Clean Photo on Right */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))',
+              gap: 'clamp(24px, 4vw, 56px)',
+              margin: 'clamp(20px, 3.5vh, 36px) 0 0 0',
+              alignItems: 'center',
+            }}
+          >
+            {/* Left Column: 4 Progressive Learning Phases */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(14px, 2vh, 20px)' }}>
               {[
                 {
                   sesi: 'Sesi 01 - 04',
@@ -561,17 +605,41 @@ export default function App() {
                 },
               ].map((road, idx) => (
                 <Reveal key={road.sesi} delay={0.05 * (idx + 1)}>
-                  <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 14 }}>
+                  <div style={{ borderLeft: '2px solid var(--primary)', paddingLeft: 16 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary)' }}>
+                      <span
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          color: 'var(--primary)',
+                          letterSpacing: '0.04em',
+                        }}
+                      >
                         {road.sesi}
                       </span>
                       <span style={{ color: 'var(--hair)' }}>·</span>
-                      <h3 style={{ fontSize: '1.02rem', fontWeight: 700, margin: 0, color: 'var(--fg)' }}>
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-head)',
+                          fontSize: 'clamp(1.05rem, 1.3vw, 1.2rem)',
+                          fontWeight: 700,
+                          margin: 0,
+                          color: 'var(--fg)',
+                          letterSpacing: '-0.015em',
+                        }}
+                      >
                         {road.fase}
                       </h3>
                     </div>
-                    <p style={{ margin: 0, fontSize: '0.84rem', lineHeight: 1.45, color: 'var(--fg-muted)' }}>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: '0.86rem',
+                        lineHeight: 1.5,
+                        color: 'var(--fg-muted)',
+                      }}
+                    >
                       {road.detail}
                     </p>
                   </div>
@@ -579,18 +647,19 @@ export default function App() {
               ))}
             </div>
 
-            {/* Kolom Kanan: Foto Dokumentasi Suasana Kelas Lab */}
+            {/* Right Column: Clean Rectangular Classroom Lab Photo Block */}
             <Reveal delay={0.2}>
               <div
                 style={{
-                  border: '1px solid var(--hair)',
+                  width: '100%',
                   borderRadius: 'var(--radius)',
                   overflow: 'hidden',
+                  border: '1px solid var(--hair)',
+                  boxShadow: '0 8px 30px rgba(0, 0, 0, 0.05)',
                   background: 'var(--surface-1)',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.06)',
                 }}
               >
-                <div style={{ position: 'relative', width: '100%', paddingTop: '62%', background: '#090d16' }}>
+                <div style={{ position: 'relative', width: '100%', paddingTop: '66%', background: '#090d16' }}>
                   <img
                     src="/prestasi/suasana-kelas.webp"
                     alt="Suasana Belajar dan Mentoring Kelas KafeKoding"
@@ -602,20 +671,37 @@ export default function App() {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
+                      display: 'block',
                     }}
                   />
                 </div>
-                <div style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--hair)' }}>
+                <div
+                  style={{
+                    padding: '12px 18px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    borderTop: '1px solid var(--hair)',
+                  }}
+                >
                   <div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--fg)' }}>
-                      Sesi Belajar & Mentoring Langsung
+                    <div style={{ fontFamily: 'var(--font-head)', fontSize: '0.92rem', fontWeight: 700, color: 'var(--fg)' }}>
+                      Pembelajaran Tatap Muka di Lab
                     </div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--fg-muted)' }}>
-                      Didampingi 1 - 2 mentor praktisi di setiap pertemuan lab
+                    <div style={{ fontSize: '0.8rem', color: 'var(--fg-muted)', marginTop: 1 }}>
+                      Didampingi 1 - 2 mentor praktisi di setiap pertemuan
                     </div>
                   </div>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)', background: '#eff6ff', padding: '3px 8px', borderRadius: 4 }}>
-                    TATAP MUKA
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.74rem',
+                      fontWeight: 600,
+                      color: 'var(--primary)',
+                      letterSpacing: '0.04em',
+                    }}
+                  >
+                    15 SESI LAB
                   </span>
                 </div>
               </div>
