@@ -171,7 +171,7 @@ export default function App() {
                   "Ya.. Kami Berdiskusi!"
                 </h2>
               </div>
-              <p style={{ margin: 0, maxWidth: '40ch', fontSize: '0.92rem', lineHeight: 1.5, color: 'var(--fg-muted)', display: 'none', md: { display: 'block' } }}>
+              <p style={{ margin: 0, maxWidth: '40ch', fontSize: '0.92rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
                 Pemahaman terbaik lahir dari keberanian bertanya, membedah kode bersama, dan saling mendukung.
               </p>
             </div>
