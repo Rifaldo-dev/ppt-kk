@@ -740,7 +740,7 @@ export default function App() {
             </div>
           </Reveal>
 
-          {/* 2-Column Compact Numbered Checklist */}
+          {/* 2-Column Compact Numbered Checklist (Direct Full Reveal) */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '14px 40px', margin: 'auto 0' }}>
             {[
               { num: '01', text: 'Terdaftar resmi sebagai peserta kelas KafeKoding 2026.' },
@@ -750,7 +750,7 @@ export default function App() {
               { num: '05', text: 'Mengikuti dan dinyatakan lulus pada ujian kelayakan akhir.' },
               { num: '06', text: 'Menjaga etika, tata tertib, dan semangat kolaborasi komunitas.' },
             ].map((syarat, idx) => (
-              <Build key={syarat.num} at={idx + 1}>
+              <Reveal key={syarat.num} delay={0.03 * (idx + 1)}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '10px 0', borderBottom: '1px solid var(--hair-2)' }}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', paddingTop: 1 }}>
                     {syarat.num}
@@ -759,7 +759,7 @@ export default function App() {
                     {syarat.text}
                   </span>
                 </div>
-              </Build>
+              </Reveal>
             ))}
           </div>
         </div>
