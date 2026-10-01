@@ -8,145 +8,134 @@ export default function App() {
   return (
     <Deck>
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 1 — OPENING (Editorial Cover with Hero Video)
+          SLIDE 1 — OPENING (Editorial Community Opening)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="01. Pembukaan"
-        notes="Selamat datang seluruh peserta! Buka sesi dengan menyapa peserta, memperkenalkan komunitas KafeKoding, dan latar belakang pembukaan kelas diskusi 2026 ini."
+        nav="01. KafeKoding 2026"
+        notes="Selamat datang seluruh peserta! Buka sesi dengan menyapa peserta dan memperkenalkan ruang belajar, diskusi, dan kolaborasi KafeKoding 2026."
       >
-        {/* Background Video Layer Khusus Slide 1 */}
         <div
           style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 0,
-            pointerEvents: 'none',
-            overflow: 'hidden',
+            width: '100%',
+            height: '100%',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))',
+            gap: 'clamp(28px, 4.5vw, 64px)',
+            alignItems: 'center',
+            textAlign: 'left',
           }}
-          aria-hidden="true"
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100vw',
-              height: '100vh',
-              objectFit: 'cover',
-              opacity: 0.22,
-              filter: 'grayscale(10%) contrast(105%)',
-            }}
-          >
-            <source src="/bg.mp4" type="video/mp4" />
-            <source src="https://kafekoding.vercel.app/assets/dokumentasi/bg.mp4" type="video/mp4" />
-          </video>
-        </div>
+          {/* Left Column: Understated Logo, Confident Editorial Typography */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', gap: 'clamp(20px, 3vh, 32px)' }}>
+            <div>
+              {/* Understated Small Logo */}
+              <Reveal>
+                <div style={{ marginBottom: 'clamp(24px, 3.5vh, 40px)' }}>
+                  <img
+                    src="/kk.webp"
+                    alt="KafeKoding"
+                    style={{
+                      width: 'clamp(36px, 4vw, 44px)',
+                      height: 'clamp(36px, 4vw, 44px)',
+                      borderRadius: '50%',
+                      display: 'block',
+                    }}
+                  />
+                </div>
+              </Reveal>
 
-        <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: 'clamp(18px, 2.5vh, 28px)' }}>
-          {/* Header Bar */}
-          <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, borderBottom: '1px solid var(--hair)', paddingBottom: 16 }}>
-              <div>
-                <img
-                  src="/kk.webp"
-                  alt="Logo KafeKoding"
-                  style={{
-                    width: 'clamp(76px, 8.5vw, 100px)',
-                    height: 'clamp(76px, 8.5vw, 100px)',
-                    display: 'block',
-                    borderRadius: '50%',
-                  }}
-                />
-              </div>
-              <div
-                style={{
-                  textAlign: 'right',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(0.78rem, 1.1vw, 0.9rem)',
-                  letterSpacing: '0.12em',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  color: 'var(--fg-faint)',
-                }}
-              >
-                KOMUNITAS KAFEKODING · PEMBUKAAN 2026
+              {/* Main Title & Supporting Hierarchy */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 1.5vh, 16px)' }}>
+                <Reveal delay={0.06}>
+                  <h1
+                    style={{
+                      fontFamily: 'var(--font-head)',
+                      fontSize: 'clamp(2.5rem, 5vw, 4.2rem)',
+                      fontWeight: 700,
+                      lineHeight: 1.05,
+                      letterSpacing: '-0.04em',
+                      color: 'var(--fg)',
+                      margin: 0,
+                    }}
+                  >
+                    KafeKoding 2026
+                  </h1>
+                </Reveal>
+
+                <Reveal delay={0.12}>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-head)',
+                      fontSize: 'clamp(1.25rem, 2.2vw, 1.85rem)',
+                      fontWeight: 600,
+                      lineHeight: 1.25,
+                      letterSpacing: '-0.02em',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    Belajar. Berdiskusi. Membuat.
+                  </div>
+                </Reveal>
+
+                <Reveal delay={0.18}>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 'clamp(0.98rem, 1.35vw, 1.15rem)',
+                      lineHeight: 1.6,
+                      color: 'var(--fg-muted)',
+                      maxWidth: '38ch',
+                      margin: 'clamp(6px, 1vh, 12px) 0 0 0',
+                    }}
+                  >
+                    Ruang untuk bertumbuh bersama melalui teknologi, eksplorasi, dan kolaborasi.
+                  </p>
+                </Reveal>
               </div>
             </div>
-          </Reveal>
 
-          {/* Main Headline */}
-          <div style={{ maxWidth: 860, textAlign: 'left', margin: 'clamp(6px, 1.2vh, 14px) 0' }}>
-            <Reveal delay={0.06}>
-              <h1
-                style={{
-                  fontFamily: 'var(--font-head)',
-                  fontSize: 'clamp(2.2rem, 4.6vw, 3.8rem)',
-                  fontWeight: 700,
-                  lineHeight: 1.08,
-                  letterSpacing: '-0.035em',
-                  color: 'var(--fg)',
-                  margin: '0 0 6px 0',
-                }}
-              >
-                Kelas Diskusi & Belajar
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.12}>
+            {/* Subtle Natural Website URL */}
+            <Reveal delay={0.24}>
               <div
                 style={{
-                  fontFamily: 'var(--font-head)',
-                  fontSize: 'clamp(1.8rem, 3.8vw, 3.2rem)',
-                  fontWeight: 600,
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.03em',
-                  color: 'var(--primary)',
-                  marginBottom: 'clamp(14px, 2vh, 22px)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.82rem',
+                  color: 'var(--fg-faint)',
+                  letterSpacing: '0.04em',
                 }}
               >
-                Bersama KafeKoding 2026
+                www.kafekoding.com
               </div>
-            </Reveal>
-
-            <Reveal delay={0.18}>
-              <p
-                style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: 'clamp(1.02rem, 1.5vw, 1.25rem)',
-                  lineHeight: 1.6,
-                  color: 'var(--fg-muted)',
-                  maxWidth: '42ch',
-                  margin: 0,
-                }}
-              >
-                Membangun pemahaman teknologi melalui diskusi aktif, mentoring terarah, dan kolaborasi nyata.
-              </p>
             </Reveal>
           </div>
 
-          {/* Bottom Information Row */}
-          <Reveal delay={0.24}>
+          {/* Right Column: Clean Rectangular Community Photo Block */}
+          <Reveal delay={0.15}>
             <div
               style={{
-                borderTop: '1px solid var(--hair)',
-                paddingTop: 'clamp(14px, 2vh, 20px)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 16,
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'clamp(0.8rem, 1.1vw, 0.92rem)',
-                color: 'var(--fg-faint)',
+                width: '100%',
+                borderRadius: 'var(--radius)',
+                overflow: 'hidden',
+                border: '1px solid var(--hair)',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.05)',
+                background: 'var(--surface-1)',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <span style={{ fontWeight: 600, color: 'var(--fg-muted)' }}>www.kafekoding.com</span>
-                <span style={{ color: 'var(--hair)' }}>|</span>
-                <span>@kafekoding</span>
+              <div style={{ position: 'relative', width: '100%', paddingTop: '68%', background: '#090d16' }}>
+                <img
+                  src="/prestasi/suasana-kelas.webp"
+                  alt="Komunitas KafeKoding"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
               </div>
-              <span style={{ fontWeight: 600 }}>Periode 2026</span>
             </div>
           </Reveal>
         </div>
