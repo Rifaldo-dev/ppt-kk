@@ -142,91 +142,159 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 2 — EKOSISTEM & KULTUR (4 Pilar + Nilai Komunitas)
+          SLIDE 2 — EKOSISTEM & KULTUR (Belajar & Bertumbuh Bersama)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="02. Ekosistem & Kultur"
-        notes="Jelaskan kultur 'Ya.. Kami Berdiskusi!' dan 4 pilar aktivitas komunitas. Tekankan bahwa posisi peserta saat ini ada pada pilar 'Belajar Bersama'."
+        notes="Jelaskan 4 pilar aktivitas KafeKoding: belajar bersama, diskusi teknologi, terlibat event, dan eksplorasi projek nyata."
       >
-        <div style={{ textAlign: 'left', width: '100%' }}>
-          {/* Header Row with Community Motto */}
+        <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+          {/* Header Row */}
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(20px, 3vh, 32px)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexWrap: 'wrap',
+                gap: 'clamp(12px, 2vw, 28px)',
+                borderBottom: '1px solid var(--hair)',
+                paddingBottom: 'clamp(16px, 2.5vh, 24px)',
+              }}
+            >
               <div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--fg-faint)',
+                    fontWeight: 600,
+                  }}
+                >
                   EKOSISTEM & KULTUR DASAR
                 </span>
-                <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  "Ya.. Kami Berdiskusi!"
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-head)',
+                    fontSize: 'clamp(2rem, 3.8vw, 3.2rem)',
+                    fontWeight: 700,
+                    margin: '6px 0 0 0',
+                    letterSpacing: '-0.03em',
+                    color: 'var(--fg)',
+                  }}
+                >
+                  Belajar & Bertumbuh Bersama
                 </h2>
               </div>
-              <p style={{ margin: 0, maxWidth: '40ch', fontSize: '0.92rem', lineHeight: 1.5, color: 'var(--fg-muted)' }}>
+              <p
+                style={{
+                  margin: 0,
+                  maxWidth: '42ch',
+                  fontSize: 'clamp(0.9rem, 1.2vw, 1rem)',
+                  lineHeight: 1.6,
+                  color: 'var(--fg-muted)',
+                }}
+              >
                 Pemahaman terbaik lahir dari keberanian bertanya, membedah kode bersama, dan saling mendukung.
               </p>
             </div>
           </Reveal>
 
-          {/* 4 Pilar Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 20 }}>
+          {/* 4 Points in Open Editorial Columns */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
+              gap: 'clamp(24px, 3.5vw, 44px)',
+              margin: 'clamp(24px, 4vh, 48px) 0 0 0',
+            }}
+          >
             {[
               {
                 num: '01',
-                tag: 'Kamu di Sini',
                 title: 'Belajar Bersama',
                 desc: 'Saling berbagi pemahaman teknologi ke sesama anggota dan peserta kelas secara terarah dan aplikatif.',
-                highlight: true,
+                isPrimary: true,
               },
               {
                 num: '02',
-                tag: 'Forum Terbuka',
                 title: 'Diskusi Teknologi',
                 desc: 'Ruang bedah persoalan tugas, tantangan industri, hingga tren rekayasa perangkat lunak modern.',
-                highlight: false,
+                isPrimary: false,
               },
               {
                 num: '03',
-                tag: 'Kompetisi',
                 title: 'Terlibat Event',
                 desc: 'Menguji batas kemampuan dengan mengikuti hackathon, workshop, dan lomba inovasi digital nasional.',
-                highlight: false,
+                isPrimary: false,
               },
               {
                 num: '04',
-                tag: 'Kolaborasi',
                 title: 'Eksplorasi Projek',
                 desc: 'Melatih kerja tim dalam pembuatan produk digital nyata melalui pembentukan squad terkoordinasi.',
-                highlight: false,
+                isPrimary: false,
               },
             ].map((pilar, idx) => (
               <Reveal key={pilar.num} delay={0.06 * (idx + 1)}>
                 <div
                   style={{
-                    borderTop: pilar.highlight ? '3px solid var(--primary)' : '1px solid var(--hair)',
-                    paddingTop: 16,
-                    height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between',
+                    justifyContent: 'flex-start',
+                    height: '100%',
                   }}
                 >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.15rem', fontWeight: 700, color: pilar.highlight ? 'var(--primary)' : 'var(--fg-faint)' }}>
-                        {pilar.num}
-                      </span>
-                      {pilar.highlight && (
-                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--primary)', background: '#eff6ff', padding: '2px 8px', borderRadius: 4 }}>
-                          {pilar.tag}
-                        </span>
-                      )}
-                    </div>
-                    <h3 style={{ fontSize: '1.18rem', fontWeight: 600, margin: '0 0 8px 0', letterSpacing: '-0.015em' }}>
-                      {pilar.title}
-                    </h3>
-                    <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.55, color: 'var(--fg-muted)' }}>
-                      {pilar.desc}
-                    </p>
-                  </div>
+                  {/* Top Hairline Indicator */}
+                  <div
+                    style={{
+                      width: '100%',
+                      height: pilar.isPrimary ? 2 : 1,
+                      background: pilar.isPrimary ? 'var(--primary)' : 'var(--hair)',
+                      marginBottom: 'clamp(14px, 2vh, 20px)',
+                    }}
+                  />
+
+                  {/* Number */}
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-head)',
+                      fontSize: 'clamp(1.8rem, 2.6vw, 2.4rem)',
+                      fontWeight: 700,
+                      lineHeight: 1,
+                      letterSpacing: '-0.03em',
+                      color: pilar.isPrimary ? 'var(--primary)' : 'var(--fg)',
+                    }}
+                  >
+                    {pilar.num}
+                  </span>
+
+                  {/* Title */}
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-head)',
+                      fontSize: 'clamp(1.15rem, 1.4vw, 1.3rem)',
+                      fontWeight: 700,
+                      margin: '12px 0 8px 0',
+                      letterSpacing: '-0.02em',
+                      color: 'var(--fg)',
+                    }}
+                  >
+                    {pilar.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: '0.92rem',
+                      lineHeight: 1.6,
+                      color: 'var(--fg-muted)',
+                    }}
+                  >
+                    {pilar.desc}
+                  </p>
                 </div>
               </Reveal>
             ))}
