@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--gutter-y) var(--gutter);
+  padding: var(--gutter-y) var(--gutter) var(--gutter-bottom, calc(var(--gutter-y) + 32px));
   overflow: hidden;
 }
 .slide.center {

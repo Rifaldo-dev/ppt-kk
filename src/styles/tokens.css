@@ -5,19 +5,19 @@
    "dark product" default — REPLACE them to match the brief or the brand.
    =================================================================== */
 :root {
-  /* Surfaces - Clean Editorial Paper Canvas */
-  --bg: #ffffff;
+  /* Surfaces - Clean Editorial Presentation Canvas */
+  --bg: #f8fafc;
   --bg-grad-1: transparent;
   --bg-grad-2: transparent;
   --surface: #ffffff;
-  --surface-2: #f8fafc;
+  --surface-2: #f1f5f9;
 
-  /* Ink - Deep Navy / Near-Black (Strict Editorial Contrast) */
+  /* Ink - Deep Ink Navy (Presentation High Contrast) */
   --fg: #090d16;
   --fg-muted: #334155;
   --fg-faint: #64748b;
 
-  /* Hairlines - Restrained Editorial Rule */
+  /* Hairlines - Restrained Editorial Dividers */
   --hair: #e2e8f0;
   --hair-2: #f1f5f9;
 
@@ -27,11 +27,11 @@
   --accent-ink: #ffffff;
 
   /* Radius — Restrained & architectural */
-  --radius: 8px;
+  --radius: 6px;
   --radius-sm: 4px;
-  --radius-lg: 12px;
+  --radius-lg: 10px;
 
-  /* Depth — Minimal, clean, intentional */
+  /* Depth — Minimal, crisp */
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   --glow: none;
 
@@ -51,7 +51,8 @@
   --grain: 0;
   --vignette: transparent;
 
-  /* Responsive gutter */
+  /* Responsive gutter & dock safe area */
   --gutter: clamp(32px, 7vw, 120px);
-  --gutter-y: clamp(36px, 6vh, 80px);
+  --gutter-y: clamp(36px, 5.5vh, 72px);
+  --gutter-bottom: clamp(68px, 9.5vh, 100px);
 }
