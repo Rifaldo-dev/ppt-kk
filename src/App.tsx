@@ -146,7 +146,7 @@ export default function App() {
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="02. Ekosistem & Kultur"
-        notes="Jelaskan 4 pilar aktivitas KafeKoding: belajar bersama, diskusi teknologi, terlibat event, dan eksplorasi projek nyata."
+        notes="Jelaskan 4 pilar aktivitas KafeKoding: belajar bersama, diskusi terbuka, uji kemampuan, dan bikin projek nyata."
       >
         <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {/* Header Row */}
@@ -173,7 +173,7 @@ export default function App() {
                     fontWeight: 600,
                   }}
                 >
-                  EKOSISTEM & KULTUR DASAR
+                  TENTANG KAMI
                 </span>
                 <h2
                   style={{
@@ -197,7 +197,7 @@ export default function App() {
                   color: 'var(--fg-muted)',
                 }}
               >
-                Pemahaman terbaik lahir dari keberanian bertanya, membedah kode bersama, dan saling mendukung.
+                Kami percaya pemahaman terbaik lahir dari keberanian bertanya dan membedah kode bersama.
               </p>
             </div>
           </Reveal>
@@ -215,25 +215,25 @@ export default function App() {
               {
                 num: '01',
                 title: 'Belajar Bersama',
-                desc: 'Saling berbagi pemahaman teknologi ke sesama anggota dan peserta kelas secara terarah dan aplikatif.',
+                desc: 'Berbagi pemahaman teknologi ke sesama anggota dan peserta kelas secara terarah dan aplikatif.',
                 isPrimary: true,
               },
               {
                 num: '02',
-                title: 'Diskusi Teknologi',
-                desc: 'Ruang bedah persoalan tugas, tantangan industri, hingga tren rekayasa perangkat lunak modern.',
+                title: 'Diskusi Terbuka',
+                desc: 'Ruang bedah persoalan tugas, tantangan industri, hingga tren rekayasa perangkat lunak terkini.',
                 isPrimary: false,
               },
               {
                 num: '03',
-                title: 'Terlibat Event',
+                title: 'Uji Kemampuan',
                 desc: 'Menguji batas kemampuan dengan mengikuti hackathon, workshop, dan lomba inovasi digital nasional.',
                 isPrimary: false,
               },
               {
                 num: '04',
-                title: 'Eksplorasi Projek',
-                desc: 'Melatih kerja tim dalam pembuatan produk digital nyata melalui pembentukan squad terkoordinasi.',
+                title: 'Bikin Projek',
+                desc: 'Melatih kerja tim dalam pembuatan produk software nyata melalui pembentukan squad terkoordinasi.',
                 isPrimary: false,
               },
             ].map((pilar, idx) => (
@@ -303,11 +303,11 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 3 — MATERI PEMBELAJARAN (Curriculum Stacks & Technologies)
+          SLIDE 3 — SILABUS MATERI (Silabus & Pilihan Domain Belajar)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
-        nav="03. Materi Pembelajaran"
-        notes="Jelaskan ragam teknologi yang dipelajari mulai dari HTML/CSS, PHP, Laravel, Database, JavaScript, Android, hingga UI/UX Design."
+        nav="03. Silabus Materi"
+        notes="Jelaskan ragam silabus teknologi yang dipelajari mulai dari HTML/CSS, JavaScript, PHP, Laravel, Database MySQL, Android, hingga UI/UX Design."
       >
         <div style={{ textAlign: 'left', width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {/* Header Row */}
@@ -334,7 +334,7 @@ export default function App() {
                     fontWeight: 600,
                   }}
                 >
-                  KURIKULUM & TEKNOLOGI
+                  SILABUS KELAS
                 </span>
                 <h2
                   style={{
@@ -346,7 +346,7 @@ export default function App() {
                     color: 'var(--fg)',
                   }}
                 >
-                  Materi yang Akan Dipelajari
+                  Teknologi yang Akan Dipelajari
                 </h2>
               </div>
               <span
@@ -358,7 +358,7 @@ export default function App() {
                   letterSpacing: '0.04em',
                 }}
               >
-                Pilihan Domain Terarah
+                Fondasi Web, Mobile, hingga Desain
               </span>
             </div>
           </Reveal>
@@ -376,12 +376,12 @@ export default function App() {
               {
                 category: 'WEB FUNDAMENTAL',
                 title: 'HTML5 & CSS3',
-                desc: 'Membangun struktur semantik web, teknik styling modern, flexbox, grid, dan tata letak responsif.',
+                desc: 'Membangun struktur semantik web, responsive layout, flexbox, grid, dan styling modern.',
               },
               {
                 category: 'INTERAKTIVITAS & LOGIKA',
                 title: 'Modern JavaScript',
-                desc: 'Logika algoritma, manipulasi DOM, pemrosesan data async, dan dasar-dasar ES6+ terkini.',
+                desc: 'Logika algoritma pemrograman, manipulasi DOM, pemrosesan data async, dan fitur ES6+ terkini.',
               },
               {
                 category: 'BACKEND & FRAMEWORK',
@@ -391,12 +391,12 @@ export default function App() {
               {
                 category: 'PENGELOLAAN DATA',
                 title: 'Database (MySQL)',
-                desc: 'Perancangan skema relasional, optimasi query SQL, relasi tabel, dan manipulasi data CRUD.',
+                desc: 'Perancangan skema relasional, manipulasi query SQL terstruktur, dan operasi CRUD database.',
               },
               {
                 category: 'MOBILE ENGINEERING',
-                title: 'Android Development',
-                desc: 'Pengembangan aplikasi native dengan Android Studio, SDK modern, dan koneksi ke web service.',
+                title: 'Android Native',
+                desc: 'Pengembangan aplikasi mobile native menggunakan Android Studio, SDK modern, dan integrasi API.',
               },
               {
                 category: 'DESAIN PRODUK',
@@ -458,7 +458,7 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 4 — STRUKTUR 15 PERTEMUAN (15-Session Learning Journey & Lab Evidence)
+          SLIDE 4 — PETA PERJALANAN (15 Sesi Pembelajaran Terarah)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="04. Struktur 15 Sesi"
@@ -489,7 +489,7 @@ export default function App() {
                     fontWeight: 600,
                   }}
                 >
-                  ALUR & METODOLOGI BELAJAR
+                  PETA PERJALANAN KELAS
                 </span>
                 <h2
                   style={{
@@ -501,7 +501,7 @@ export default function App() {
                     color: 'var(--fg)',
                   }}
                 >
-                  Struktur 15 Sesi Pembelajaran
+                  15 Sesi Pembelajaran Terarah
                 </h2>
               </div>
               <span
@@ -513,7 +513,7 @@ export default function App() {
                   letterSpacing: '0.04em',
                 }}
               >
-                Tatap Muka & Mentoring di Lab
+                Tatap Muka & Pendampingan Mentor
               </span>
             </div>
           </Reveal>
@@ -659,7 +659,7 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 5 — SYARAT KELULUSAN KELAS 2026 (6 Core Checklist)
+          SLIDE 5 — SYARAT KELULUSAN (Komitmen & Standar Kelulusan)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="05. Syarat Kelulusan"
@@ -670,14 +670,14 @@ export default function App() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid var(--hair)', paddingBottom: 16, marginBottom: 'clamp(24px, 3.5vh, 36px)' }}>
               <div>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-faint)' }}>
-                  KETENTUAN & STANDAR KELULUSAN
+                  KOMITMEN BELAJAR
                 </span>
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', fontWeight: 700, margin: '4px 0 0 0', letterSpacing: '-0.025em' }}>
-                  6 Syarat Penyelesaian Kelas 2026
+                  Syarat Penyelesaian Kelas 2026
                 </h2>
               </div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: 'var(--primary)', fontWeight: 600 }}>
-                Wajib Terpenuhi
+                Standar Kelulusan Resmi
               </span>
             </div>
           </Reveal>
@@ -685,12 +685,12 @@ export default function App() {
           {/* 2-Column Compact Numbered Checklist */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '14px 40px', margin: 'auto 0' }}>
             {[
-              { num: '01', text: 'Melakukan pendaftaran resmi sebagai peserta kelas KafeKoding 2026.' },
-              { num: '02', text: 'Mengikuti Sesi Pembukaan dan orientasi kelas (sesi saat ini).' },
-              { num: '03', text: 'Menghadiri sesi pertemuan minimal 12 kali (maksimal 4 kali toleransi tidak hadir).' },
+              { num: '01', text: 'Terdaftar resmi sebagai peserta kelas KafeKoding 2026.' },
+              { num: '02', text: 'Mengikuti sesi pembukaan dan orientasi kelas (sesi saat ini).' },
+              { num: '03', text: 'Menghadiri sesi pertemuan minimal 12 kali (maksimal 4 kali toleransi izin/sakit).' },
               { num: '04', text: 'Menyelesaikan dan mengumpulkan seluruh penugasan mingguan dari mentor.' },
               { num: '05', text: 'Mengikuti dan dinyatakan lulus pada ujian kelayakan akhir.' },
-              { num: '06', text: 'Mematuhi peraturan, tata tertib, dan etika yang ditetapkan oleh KafeKoding.' },
+              { num: '06', text: 'Menjaga etika, tata tertib, dan semangat kolaborasi komunitas.' },
             ].map((syarat, idx) => (
               <Build key={syarat.num} at={idx + 1}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '10px 0', borderBottom: '1px solid var(--hair-2)' }}>
@@ -708,7 +708,7 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 6 — JEJAK & CAPAIAN (Visual Track Record & Real Evidence)
+          SLIDE 6 — REKAM JEJAK (Bukti Nyata, Bukan Teori)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="06. Jejak Capaian"
@@ -739,7 +739,7 @@ export default function App() {
                     fontWeight: 600,
                   }}
                 >
-                  BUKTI NYATA & CAPAIAN
+                  REKAM JEJAK KOMUNITAS
                 </span>
                 <h2
                   style={{
@@ -763,7 +763,7 @@ export default function App() {
                   letterSpacing: '0.04em',
                 }}
               >
-                Bukan Sekadar Teori
+                Bukti Nyata, Bukan Teori
               </span>
             </div>
           </Reveal>
@@ -790,14 +790,14 @@ export default function App() {
               {
                 track: '02 / CYBER SECURITY',
                 title: 'SEVIMA Security Challenge 2026',
-                highlight: 'Best Writeup',
+                highlight: 'Best Writeup Award',
                 amount: 'Rp 26.500.000',
                 detail: 'Raihan penghargaan Best Writeup pada ajang kompetisi keamanan siber nasional SEVIMA Security Challenge 2026.',
                 img: '/prestasi/sevima-security-challenge.webp',
               },
               {
                 track: '03 / INDUSTRI & KARIR',
-                title: 'Rekrutmen Sebelum Lulus',
+                title: 'Kontrak Kerja Sebelum Wisuda',
                 highlight: 'Universitas Metamedia',
                 detail: 'Alif Budiman & Reyhan Dwi Syaputra telah mengantongi kontrak kerja software engineer saat masih berstatus mahasiswa aktif.',
                 img: '/prestasi/kontrak-kerja-alif-reyhan.webp',
@@ -915,7 +915,7 @@ export default function App() {
       </Slide>
 
       {/* ════════════════════════════════════════════════════════════════
-          SLIDE 7 — CLOSING & Q&A (Editorial Closing with Video Background)
+          SLIDE 7 — CLOSING (Tanya Jawab & Salam Penutup)
           ════════════════════════════════════════════════════════════════ */}
       <Slide
         nav="07. Tanya Jawab"
@@ -971,7 +971,7 @@ export default function App() {
                   fontWeight: 600,
                 }}
               >
-                SESI TANYA JAWAB & PENUTUP
+                SESI TERAKHIR
               </span>
             </div>
           </Reveal>
@@ -1020,7 +1020,7 @@ export default function App() {
                   margin: 0,
                 }}
               >
-                Sampai jumpa di pertemuan pertama kelas diskusi dan belajar bersama KafeKoding 2026.
+                Mari berdiskusi, belajar bareng, dan sampai jumpa di pertemuan pertama lab!
               </p>
             </Reveal>
           </div>
